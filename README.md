@@ -37,8 +37,23 @@ through Pokémon. Without one included in our code, our users would possibly hit
 # Begin API Info Section
 
 
-
 **All request to the API must be made over HTTPS. Calls made over plain HTTP will fail, and redirect automatically to HTTPS**
+
+
+## Errors!
+#### HTTP error messages from API
+#### in fancy terms, "HTTP Status Code Summary"
+
+
+|Status Code|Description|
+|-----------|-----------|
+200 - OK |Everything worked as expected.
+400 - Bad Request |The request was unacceptable, often due to an incorrect query string parameter
+402 - Request Failed |The parameters were valid but the request failed.
+403 - Forbidden |The user doesn't have permissions to perform the request.
+404 - Not Found |The requested resource doesn't exist.
+429 - Too Many Requests |The rate limit has been exceeded.
+500, 502, 503, 504 - Server Errors	|Something went wrong on our end.
 
 
  # GET a Card.
