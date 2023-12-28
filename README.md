@@ -81,8 +81,51 @@ tcgplayer |hash |TCGPlayer info for any card
     - meaning our parameter could have multiple field of search, they MUST be
     deliminated by a comma. 
 - If we use the API key in our header code correctly there is a fun little card object 'finder"
-    - '  pokemon.card.find(fieldForSearch)
-    -   .then(card => {
-    -      console.log(card.name)  //=> 'Charizard'
-    -    })                                         '
+    -         pokemon.card.find(fieldForSearch)
+    -               .then(card => {
+    -               console.log(card.name)  //=> 'Charizard'
+    -          })   
+    
+                                          '
+
+<strong>Search Parameters</strong>
+Parameter|Description|Default Value
+|--------|-----------|-------------|
+q|The search query.|Examples can be found below.	
+page|The page of data to access.|1
+pageSize|The maximum amount of cards to return.|250 (max of 250)
+orderBy|The field(s) to order the results by.|Examples can be found below.	
+select|A comma delimited list of fields to return in the response (ex. ?select=id,name).|By default, all fields are returned if this query parameter is not used.	
+
+<strong>Searching cont.. Keyword Matching</strong>
+
+**Examples** 
+1. You wanted to search for a card with the name of 'Charizard'
+    - (name:charizard)
+2. If you have a pokemon that happens to have V or other letters in the title
+    - (name:"venusaur v")
+3. Two fields?
+    - (name:charizard subtypes:mega)
+4. Search for all "mega" subtypes, BUT NOT an certain type?
+    - (subtypes:mega -types:water)
+5. Exact Matching
+    - (!name:charizard)
+6. Range Searches! Some fields support searching on a range (ones that contain numerical data 'int')
+    - we use bracket notation to access
+    - example: (nationalPokedexNumbers:[1 TO 151]) //=> **This would give us ONLY the first 151 pokemon**
+7. We can search on Nested Fields!
+    - Use a period as a seperator to access the nested fields.
+    - Some Examples:
+        - (     set.id:sm1    )  //=> filter by set ID
+        - (     attacks.name:waterCannon    )   //=> filter on cards with an attack of waterCannon
+8. WE CAN PREORDER OUR DATA?!
+    - Using the ' orderBy ' query parameter. 
+    -      pokemon.card.all({ q: 'name:charizard' , orderBy: '-set.releaseDate' })
+    -        .then((result) => {
+    -             functionGoesHere
+    -         })
+
+
+
+
 
