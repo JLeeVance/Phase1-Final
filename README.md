@@ -18,13 +18,11 @@ through Pokémon. Without one included in our code, our users would possibly hit
 **All request to the API must be made over HTTPS. Calls made over plain HTTP will fail, and redirect automatically to HTTPS**
 
 
-GET a Card.
+ # GET a Card.
 
-	GET https://api.pokemontcg.io/v2/cards/<id>
-
-
+	    GET https://api.pokemontcg.io/v2/cards/<id>
 -	Fetch the details of a single card
-        -   Needs the value of the key ‘id’ of the card.
+ -   Needs the value of the key ‘id’ of the card.
 
 
 (	https://docs.pokemontcg.io/api-reference/cards/search-cards )
@@ -32,7 +30,8 @@ GET a Card.
 
 
 
-The Card Object Attributes
+# The Card Object Attributes
+
 
 
 |KEY NAME |DATA Type| Info|
@@ -76,4 +75,14 @@ tcgplayer |hash |TCGPlayer info for any card
 -- |prices:hash	|a hash of price types
 --|--|‘low    ’ – ‘mid’ - ‘high’
 --|‘market’ = marketValue|--
-		
+
+**Fun things to note about the card Object**
+- All query parameters are optional 
+    - meaning our parameter could have multiple field of search, they MUST be
+    deliminated by a comma. 
+- If we use the API key in our header code correctly there is a fun little card object 'finder"
+    - '  pokemon.card.find(fieldForSearch)
+    -   .then(card => {
+    -      console.log(card.name)  //=> 'Charizard'
+    -    })                                         '
+
