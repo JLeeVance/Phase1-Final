@@ -193,3 +193,188 @@ select |A comma delimited list of fields to return in the response (ex. ?select=
 3. Get a specific page of data
 
                         sets = Set.where(page=2, pageSize=10)
+
+
+# Using a fetch for the type of POKEMON
+#### GET all possible types
+
+1. HTTP Request:
+
+        GET https://api.pokemontcg.io/v2/types
+2. No parameters for the following:
+    - URL
+    - Body
+    - Query
+
+**We were given some code samples, I THINK this is trying to tell us we can use the same sort of formatting as we have in the above examples, matching the key to the provided value of the type we are searching for!
+
+3. Code Example:
+
+                 pokemon.type.all()
+    -ExampleResponse
+
+                {
+                    "data": [
+                        "Colorless",
+                        "Darkness",
+                        "Dragon",
+                        "Fairy",
+                        "Fighting",
+                        "Fire",
+                        "Grass",
+                        "Lightning",
+                        "Metal",
+                        "Psychic",
+                        "Water"
+                    ]
+                }
+
+
+## **There is another fetch for subtypes, but I do not think we will be filtering by that, if we do, the link to the page with a few examples is below.**
+
+https://docs.pokemontcg.io/api-reference/subtypes/get-subtypes
+
+##  RAREITY Searching, or "fetching"
+
+1. This is built off of the inbedded 'pokemon API' search method? We need to verify, but If we can use this formatting it will make things much easier. 
+
+        pokemon.rarity.all()
+- example response
+
+
+        {
+            "data": [
+                "Amazing Rare",
+                "Common",
+                "LEGEND",
+                "Promo",
+                "Rare",
+                "Rare ACE",
+                "Rare BREAK",
+                "Rare Holo",
+                "Rare Holo EX",
+                "Rare Holo GX",
+                "Rare Holo LV.X",
+                "Rare Holo Star",
+                "Rare Holo V",
+                "Rare Holo VMAX",
+                "Rare Prime",
+                "Rare Prism Star",
+                "Rare Rainbow",
+                "Rare Secret",
+                "Rare Shining",
+                "Rare Shiny",
+                "Rare Shiny GX",
+                "Rare Ultra",
+                "Uncommon"
+            ]
+        }
+
+- HTPP Request
+
+        GET https://api.pokemontcg.io/v2/rarities
+
+
+
+# This is the Javascript Dev TCG SDK 
+####    SDK (software development kit) - A set of platform-specific building tools for developers. 
+####    They help us work with the API easiser within our code!
+
+
+<strong>This is the Pokémon TCG SDK Javascript implementation. It is a wrapper around the Pokémon TCG API of pokemontcg.io.</strong>
+
+#### Installation
+
+        npm install --save pokemontcgsdk
+
+#### Usage
+###### Configuration
+
+        import pokemon from 'pokemontcgsdk'
+        pokemon.configure({apiKey: '123abc'})
+
+#### Cards
+
+###### Get a single card by ID
+
+            pokemon.card.find('base1-4')
+                .then(card => {
+                    console.log(card.name) // "Charizard"
+                })
+
+###### Filter cards via the q parameter
+
+            pokemon.card.where({ q: 'name:blastoise' })
+                .then(result => {
+                    console.log(result.data[0].name) // "Blastoise"
+                })
+
+###### Filter cards via the q parameter and specific page
+
+                pokemon.card.where({ q: 'name:blastoise', pageSize: 10, page: 3 })
+                .then(result => {
+                    console.log(result.data[0].name) // "Blastoise"
+                })
+
+###### Automatically page through card data
+
+                pokemon.card.all({ q: 'name:blastoise' })
+                    .then((cards) => {
+                        console.log(cards[0].name) // "Blastoise"
+                    })
+
+- Using the all function, pagination happens automatically, and the result will simply contain the data and no pagination info.
+
+#### Sets
+
+
+###### Get a single set by ID
+
+        pokemon.set.find('base1')
+        .then(set => {
+            console.log(set.name) // "Base"
+        })
+
+###### Filter sets via the q parameter
+
+        pokemon.set.where({ q: 'series:base' })
+        .then(result => {
+            console.log(result.data[0].name) // "Base"
+        })
+
+###### Filter cards via the q parameter and specific page
+
+        pokemon.set.where({ q: 'series:base', pageSize: 1, page: 1 })
+        .then(result => {
+            console.log(result.data[0].name) // "Base"
+        })
+
+###### Automatically page through card data
+
+        pokemon.set.all({ q: 'series:base' })
+        .then((cards) => {
+            console.log(cards[0].name) // "Base"
+        })
+
+- Using the all function, pagination happens automatically, and the result will simply contain the data and no pagination info.
+
+#### Supertypes
+
+        pokemon.supertype.all()
+#### Subtypes
+
+        pokemon.subtype.all()
+#### Types
+
+        pokemon.type.all()
+#### Rarity
+
+        pokemon.rarity.all()
+
+Please refer to https://docs.pokemontcg.io for more information on query syntax and what fields are available.
+
+
+###### Build tasks are in npm scripts:
+
+npm run build
+npm run test
