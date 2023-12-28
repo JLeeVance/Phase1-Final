@@ -81,10 +81,11 @@ tcgplayer |hash |TCGPlayer info for any card
     - meaning our parameter could have multiple field of search, they MUST be
     deliminated by a comma. 
 - If we use the API key in our header code correctly there is a fun little card object 'finder"
-    -         pokemon.card.find(fieldForSearch)
-    -               .then(card => {
-    -               console.log(card.name)  //=> 'Charizard'
-    -          })   
+
+             pokemon.card.find(fieldForSearch)
+                   .then(card => {
+                   console.log(card.name)  //=> 'Charizard'
+              })   
     
                                           '
 
@@ -120,12 +121,75 @@ select|A comma delimited list of fields to return in the response (ex. ?select=i
         - (     attacks.name:waterCannon    )   //=> filter on cards with an attack of waterCannon
 8. WE CAN PREORDER OUR DATA?!
     - Using the ' orderBy ' query parameter. 
-    -      pokemon.card.all({ q: 'name:charizard' , orderBy: '-set.releaseDate' })
-    -        .then((result) => {
-    -             functionGoesHere
-    -         })
+
+          pokemon.card.all({ q: 'name:charizard' , orderBy: '-set.releaseDate' })
+            .then((result) => {
+                 functionGoesHere
+             })
 
 
 
 
+# GET a set
 
+
+
+##          HTTPS request:
+- 
+                            GET https://api.pokemontcg.io/v2/sets/<id>  
+
+- Parameters:
+    - id: the Id of the set you are wanting.
+- Query Parameters
+    - select: a comma deliminated list of fields to return in the response. By default, all fields are returned if this query selector is not used. 
+- There is also some fun little code for fetching sets it seems.
+
+                        pokemon.set.find('swsh1')
+                            .then(set => {
+                              console.log(set.name) //=> "Sword & Shield"
+                         })
+
+
+# The Set Object 
+#### Attributes
+
+
+|The|Set|Object|
+|----|----------|----|
+id |string |Unique identifier for the object.
+name |string |The name of the set.
+series |string |The series the set belongs to, like Sword and Shield or Base.
+printedTotal |integer |The number printed on the card that represents the total. This total does not include secret rares.
+total|integer |The total number of cards in the set, including secret rares, alternate art, etc.
+legalities |hash|The legalities of the set. If a given format is not legal, it will not appear in the hash. This is a hash with the following fields
+--|standard:string |The standard game format. Possible values are Legal.
+-- |expanded:string	|The expanded game format. Possible values are Legal.
+-- |unlimited:string |The unlimited game format. Possible values are Legal.
+ptcgoCode |string |The code the Pokémon Trading Card Game Online uses to identify a set.
+releaseDate |string |The date the set was released (in the USA). Format is YYYY/MM/DD.
+updatedAt |String |The date and time the set was updated. Format is YYYY/MM/DD HH:MM:SS.
+images |hash |Any images associated with the set, such as symbol and logo. This is a hash with the following fields:
+-- |symbol:string |The url to the symbol image.
+-- |logo:string	|The url to the logo image.
+
+# Query Parameters 
+#### All query parameters are optional.
+
+Parameter |Description |Default Value
+|---------|------------|-------------|
+q |The search query. |Examples can be found below.	
+page |The page of data to access. |1
+pageSize |The maximum amount of cards to return. |250 (max of 250)
+orderBy |The field(s) to order the results by. |Examples can be found below.	
+select |A comma delimited list of fields to return in the response (ex. ?select=id,name). |By default, all fields are returned if this query parameter is not used.	
+
+####  Query Examples for Sets
+1. Get all sets
+
+                        sets = Set.all()
+2. Filter sets
+
+                        sets = Set.where(q='legailities.standard:legal')
+3. Get a specific page of data
+
+                        sets = Set.where(page=2, pageSize=10)
