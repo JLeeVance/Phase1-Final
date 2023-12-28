@@ -376,5 +376,5 @@ Please refer to https://docs.pokemontcg.io for more information on query syntax 
 
 ###### Build tasks are in npm scripts:
 
-npm run build
-npm run test
+        npm run build
+        npm run test
