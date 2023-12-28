@@ -1,19 +1,42 @@
 # Phase1-Final
 
-** For Developers use during the process
-** Not intended to sustain in final edit
+<strong>For Developers use during the process</strong>
 
-# Fetching to the API we are using
+**Not intended to sustain in final edit**
+
+## Fetching to the API we are using
 
 While we could access the API without an API key, I have signed up for the Developer community
-through Pokémon. Without one included in our code, our users would possibly hit a "limit' to how many requests we get a day! SO we have a key that needs to be present in our header I believe. This will also speed up the process overall for our communication with the API from what I understand.
+through Pokémon. Without one included in our code, our users would possibly hit a "limit' to how many requests we get a day! SO we have a key that needs to be present in our header I believe. This will also speed up the process overall for our communication with the API from what I understand. I will paste the text below that I read on the website. 
 
-** I will provide you each with the API key via messaging when we are all back together!
-** We need to ask about it though, as I do not want to ruin anything by using it, but after reading n 
+#### Authentication blurb from API website:
+
+                The Pokémon TCG API uses API keys to authenticate requests. Sign up for an account at the Pokémon TCG Developer Portal to get your API key for free.
+
+                Your API keys carry many privileges, so be sure to keep them secure! Do not share your secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth. If you feel as though your API key has been compromised, you can generate a new key at any time.
+
+                Authentication to the API is performed via the X-Api-Key header. Provide your API key in the headers of all requests to authenticate to the Pokémon TCG API.
+
+                All API requests must be made over HTTPS. Calls made over plain HTTP will fail will redirect to HTTPS automatically. API requests without authentication won't fail, but your rate limits are drastically reduced.
+
+#### Rate Limits blurb:
+                        Third-party application rate limits depend on your API key. By default, requests are limited to 20,000/day. If you need a higher rate limit, feel free to contact me via Discord or email and we can discuss.
+
+
+**If you aren’t using an API key, you are rate limited to 1000 requests a day, and a maxium of 30 per minute.**
 
 
 
-‘Authentication to the API is performed via the X-API-Key header’ is what the documents on their website say if we choose to use the imbedded API key. 
+<strong>I will provide you each with the API key via messaging when we are all back together!</strong>
+
+**We need to ask about it though, as I do not want to ruin anything by using it but I think it wouldnt do harm as we have the key and its within our header not on the user side.**
+
+
+
+
+# Begin API Info Section
+
+
 
 **All request to the API must be made over HTTPS. Calls made over plain HTTP will fail, and redirect automatically to HTTPS**
 
