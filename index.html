@@ -8,35 +8,37 @@
   <body>
     <div class="search-bar">
       <nav>
-        all pokemon
         <!-- Pokemon Cards Rendered here -->
       </nav>
-      <form>
-        Search Form
+
+      <form class="form">
         <label for="Pokemon Name">Pokemon Name : </label>
         <input type="text" name="Pokemon Name" id="byName" />
-        <!-- comment -->
+
         <label for="Pokemon Type">Pokemon Type : </label>
         <input type="text" name="Type" id="byType" />
 
         <label for="Pokemon Id">Pokemon Id : </label>
         <input type="text" name="Pokemon id" id="byId" />
 
-        <button type="submit">Catch' em All!</button>
+        <button type="submit" class="submit-button">Catch' em All!</button>
       </form>
     </div>
 
     <div id="display-card">
-      Current Poke Card
-      <h2 class="poke-name">pokemon name</h2>
-      <img class="poke-name" src="" />pokemon image
+      Current Pokemon
+      <h2 class="pokemon-name">Current Pokemon name</h2>
+      <img class="pokemon-image" src="" />Current Pokemon Card
+      <p class="attributes">Current Pokemon Info</p>
       <button id="addTo=collection" type="click">Add to Collection</button>
     </div>
 
-    <div id="card-collection">
+    <!-- <div id="card-collection">
       card collection
-      <!-- My collection of cards -->
-    </div>
+      <nav>
+        My collection of cards
+      </nav>
+    </div>  -->
   </body>
 </html>
 

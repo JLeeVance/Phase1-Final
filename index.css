@@ -1,3 +1,51 @@
-* {
-    text-align:center;
+
+body {
+    display: flex;
+    justify-content: center;
 }
+
+.search-bar {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    text-align: center;
+    width: 33.33%;
+    padding: 2.5%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.display-card {
+    
+}
+
+.form {
+    margin-bottom: 20px;
+}
+
+.form label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.form input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #0d0d0d;
+    border-radius: 4px;
+}
+
+.form button {
+    margin:5px;
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #0d0d0d;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
