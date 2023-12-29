@@ -1,4 +1,4 @@
-fetch("https://api.pokemontcg.io/v2/cards?set.series:base").then((resp) => resp.json())
+fetch("https://api.pokemontcg.io/v2/cards?name:charizard").then((resp) => resp.json())
     .then((dataObj) => renderNavBar(dataObj));
 
 function renderNavBar (dataObj){
