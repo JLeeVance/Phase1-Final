@@ -2,7 +2,7 @@ fetch("https://api.pokemontcg.io/v2/cards?name:charizard").then((resp) => resp.j
     .then((dataObj) => renderNavBar(dataObj));
 
 function renderNavBar (dataObj){
-    // console.log(dataObj.data);
+    console.log(dataObj.data);
     let cardArray = dataObj.data;
     const navForPoke = document.querySelector("#navBar")
 
@@ -17,6 +17,9 @@ function renderNavBar (dataObj){
     cardArray.forEach( cardObj => {
         const img = document.createElement("img");
         const imgSrc = cardObj.images.small;
+        const name = cardObj.name;
+
+
 
         img.src = imgSrc;
         img.style.margin = 3;
