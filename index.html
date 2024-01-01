@@ -6,11 +6,12 @@
   </head>
 
   <body>
-    <div class="search-bar">
-      <nav>
+    <div class="navbar">
+      <nav class="scroll-container">
         <!-- Pokemon Cards Rendered here -->
       </nav>
-
+    </div>
+    <div class="search-bar">
       <form class="form">
         <label for="Pokemon Name">Pokemon Name : </label>
         <input type="text" name="Pokemon Name" id="byName" />
@@ -28,7 +29,10 @@
     <div id="display-card">
       Current Pokemon
       <h2 class="pokemon-name">Current Pokemon name</h2>
-      <img class="pokemon-image" src="" />Current Pokemon Card
+      <img
+        class="pokemon-image"
+        src="https://theprintedmeeple.com/cdn/shop/products/pkm_placeholder_0da1c595-a0c3-4020-b102-5efecc314446_370x.png?v=1703784246"
+      />Current Pokemon Card
       <p class="attributes">Current Pokemon Info</p>
       <button id="addTo=collection" type="click">Add to Collection</button>
     </div>
