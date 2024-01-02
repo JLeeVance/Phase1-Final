@@ -27,22 +27,51 @@
       </form>
     </div>
 
-    <div class="display-card">
-      <h2 class="pokemon-name">Pokemon name</h2>
-      <img
-        class="pokemon-image"
-        src="https://theprintedmeeple.com/cdn/shop/products/pkm_placeholder_0da1c595-a0c3-4020-b102-5efecc314446_370x.png?v=1703784246"
-      />
-      <p class="attributes"></p>
-      <button id="addCollection" type="click">Add to Collection</button>
+    <div
+      id="display-card"
+      class="card-container"
+      style="border: 1px solid black">
+      <!-- solid black rectangle around the section for the selected card -->
+      <h2 class="poke-name">Placeholder Pokemon Name from API</h2>
+      <div class="content-wrapper">
+        <!-- display inside of the rectangle -->
+        <div class="content-left">
+          <div class="image-box">
+            <img
+              class="poke-image"
+              src="pokemon_placeholder.jpg"
+              alt="Placeholder Pokemon Image from API"
+            />
+            <!-- Image container for the Selected Card to display here -->
+          </div>
+        </div>
+        <!-- end of left DIV -->
+
+        <div class="content-right">
+          <!-- this DIV will display pokemon attributes from API -->
+          <div class="attributes-box">
+            <h3>Placeholder Title: Pokemon Attributes from API</h3>
+            <ul>
+              <li><strong>Placeholder Info: Type:</strong> Electric</li>
+              <li><strong>Placeholder Info: Height:</strong> 0.4m</li>
+              <li><strong>Placeholder Info: Weight:</strong> 6kg</li>
+              <!-- Add other attributes as needed -->
+            </ul>
+          </div>
+          <!-- End of right side DIV display -->
+          <button id="addToCollection" class="small-button" type="button">
+            Add to Collection Below
+          </button>
+          <!-- button for adding selected card to the DIV "my collection "-->
+        </div>
+      </div>
     </div>
 
     <!-- <div id="card-collection">
       card collection
-      <nav>
-        My collection of cards
-      </nav>
-    </div>  -->
+
+      <!-- My collection of cards -->
+    </div>
   </body>
 </html>
 

@@ -70,3 +70,4 @@ function renderNavBar (dataObj){
 //     .then((dataObj) => console.log(dataObj.data[24][`set`][`series`]))
 
 //  The code above resulted in "Base" being console.logged.
+

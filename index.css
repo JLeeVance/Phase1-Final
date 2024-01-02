@@ -1,3 +1,59 @@
+/* Example CSS styles for the display card layout */
+
+/* Styles for the card container */
+.card-container {
+  text-align: center; /* Center align content */
+}
+
+/* Styles for the Pokemon name */
+.poke-name {
+  margin-top: 20px; /* Example margin */
+}
+
+/* Styles for the content wrapper */
+.content-wrapper {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  margin-top: 20px; /* Example margin */
+}
+
+/* Styles for the left content (image) */
+.content-left {
+  flex: 1; /* Take remaining space */
+  text-align: center; /* Center content horizontally */
+}
+
+/* Styles for the right content (attributes and button) */
+.content-right {
+  flex: 1; /* Take remaining space */
+  text-align: center; /* Center content horizontally */
+}
+
+/* Styles for the attributes box */
+.attributes-box {
+  border: 2px solid #ccc; /* Example border style */
+  padding: 10px;
+  margin-top: 20px; /* Example margin for spacing */
+}
+
+/* Styles for the attributes list */
+.attributes-box ul {
+  list-style: none; /* Remove default list styles */
+  padding: 0;
+}
+
+/* Style for each attribute item */
+.attributes-box li {
+  margin-bottom: 5px; /* Example margin for spacing between items */
+}
+
+/* Style for the smaller button */
+.small-button {
+  font-size: 14px; /* Example smaller font size */
+  padding: 5px 10px; /* Example padding */
+  margin-top: 20px; /* Example margin */
+}
 body {
     background-color: slategray;
     margin:0;
@@ -7,29 +63,6 @@ body {
     align-items: center;
     width:100%;
     height: auto;
-}
-
-.display-card {
-    text-align: center;
-    width: 66.66%;
-    padding: 2.5%;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-.attributes {
-    display:inline-flex;
-    align-items: center;
-    justify-content: right;
-}
-
-.pokemon-image {
-    display: inline-flex;
-    justify-content: left;
-    width:300px;
-    height:auto;
-    background-color: black;
 }
 
 .navbar {
@@ -94,4 +127,3 @@ body {
     cursor: pointer;
     font-size: 16px;
 }
-
