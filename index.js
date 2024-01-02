@@ -63,7 +63,7 @@ function renderNavBar (dataObj){
     });       
    };
 
-const collectionDisplay = document.querySelector(".collection-display");
+const collectionDisplay = document.querySelector("#collection-container");
 const buttonAddCollect = document.querySelector("#addToCollection");
 buttonAddCollect.addEventListener('click', () => addtoCollection());
 //When clicked
