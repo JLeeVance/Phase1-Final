@@ -2,25 +2,18 @@
   <head>
     <title>Insert Title Here</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <script defer src="index.js" type="text/javascript"></script>
+    <script defer type="text/javascript" src="index.js"></script>
   </head>
 
   <body>
 
-    <nav>Insert Pokemon Cards here</nav>
-
-    <input name="search-bar" />
-
-    <!-- App Name? -->
-    <h1>App Name</h1>
-
-    <div>
-      <nav id="navBar">
-        all pokemon
+    <div class="navbar">
+      <nav class="scroll-container">
         <!-- Pokemon Cards Rendered here -->
       </nav>
-      <form>
-        Search Form
+    </div>
+    <div class="search-bar">
+      <form class="form">
         <label for="Pokemon Name">Pokemon Name : </label>
         <input type="text" name="Pokemon Name" id="byName" />
 
@@ -30,22 +23,26 @@
         <label for="Pokemon Id">Pokemon Id : </label>
         <input type="text" name="Pokemon id" id="byId" />
 
-        <button type="submit">Catch' em All!</button>
+        <button type="submit" class="submit-button">Catch' em All!</button>
       </form>
     </div>
 
-    <div id="display-card">
-      Current Poke Card
-      <h2 class="poke-name">pokemon name</h2>
-      <img class="poke-name" src="" />pokemon image
-      <button id="addTo=collection" type="click">Add to Collection</button>
+    <div class="display-card">
+      <h2 class="pokemon-name">Pokemon name</h2>
+      <img
+        class="pokemon-image"
+        src="https://theprintedmeeple.com/cdn/shop/products/pkm_placeholder_0da1c595-a0c3-4020-b102-5efecc314446_370x.png?v=1703784246"
+      />
+      <p class="attributes"></p>
+      <button id="addCollection" type="click">Add to Collection</button>
     </div>
 
-    <div id="card-collection">
+    <!-- <div id="card-collection">
       card collection
-      <!-- My collection of cards -->
-    </div>
-
+      <nav>
+        My collection of cards
+      </nav>
+    </div>  -->
   </body>
 </html>
 
