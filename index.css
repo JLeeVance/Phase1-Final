@@ -127,3 +127,14 @@ body {
     cursor: pointer;
     font-size: 16px;
 }
+
+.collection-display {
+  padding: 5px;
+  border: 1px solid #0d0d0d;
+  overflow:auto;
+  align-items: center;
+  overflow: auto;
+  width: 50%;
+  align-items: center;
+}
+
