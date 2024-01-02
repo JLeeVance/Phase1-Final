@@ -8,17 +8,11 @@ function renderNavBar (dataObj){
     let cardArray = dataObj.data;
     //      pulled the card array from the data object within the object returned from the fetch.
     //      assigned it to cardArray.
-    const navForPoke = document.querySelector("#navBar")
+    const navForPoke = document.querySelector(".navBar")
     //      pulled the <nav> for the pokemon to be rendered to
 
     navForPoke.textContent = "";
-    //      removed default text, can do this manually later!
-    navForPoke.style.display = "flex";
-    navForPoke.style.height = 151;
-    //      set height for the <nav> to 151px
-    navForPoke.style.overflowX = "scroll"; 
-    //      set the overflow of the X axis style property to scroll, allowing us to scroll back and forth
-    //      through the rendered cards
+
     cardArray.forEach( cardObj => {
         const img = document.createElement("img");
         //      created <img> for each image being rendered
@@ -46,9 +40,6 @@ function renderNavBar (dataObj){
             attacks.push({'name':attackObj.name , 'attackText':attackObj.text , 'damage':attackObj.damage})
         })
         // console.log(attacks)
-
-        img.style.margin = 3;
-        // img.addEventListener('click' , () => console.log(name));
 
 
 
