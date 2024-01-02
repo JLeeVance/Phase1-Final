@@ -1,4 +1,97 @@
-* {
-    text-align:center;
-
+body {
+    background-color: slategray;
+    margin:0;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: auto;
 }
+
+.display-card {
+    text-align: center;
+    width: 66.66%;
+    padding: 2.5%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.attributes {
+    display:inline-flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.pokemon-image {
+    display: inline-flex;
+    justify-content: left;
+    width:300px;
+    height:auto;
+    background-color: black;
+}
+
+.navbar {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: slategray;
+  max-width: 100%;
+}
+
+.scroll-container {
+  overflow:auto;
+  align-items: center;
+  overflow: auto;
+}
+
+.navbar img {
+  width: 150px;
+  height: auto;
+  margin-right: 2.5px;
+}
+
+.search-bar {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    padding: 2.5%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form {
+    margin-bottom: 20px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form label {
+    display: block;
+    margin: 10px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.form input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #0d0d0d;
+    border-radius: 4px;
+}
+
+.form button {
+    margin:5px;
+    background-color: #ff0000;
+    color: #fff;
+    padding: 8px;
+    border: 1px solid #0d0d0d;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
