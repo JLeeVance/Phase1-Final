@@ -1,19 +1,19 @@
-fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base").then((resp) => resp.json())
-    .then((dataObj) => renderNavBar(dataObj));
+fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base")
+.then((resp) => resp.json())
+.then((cardObjArr) => renderCardObjArr(cardObjArr.data));
 
     // console.log(dataObj.data[24][`set`][`series`])
 
-function renderNavBar (dataObj){
-    // console.log(dataObj.data[24]);
-    let cardArray = dataObj.data;
-    //      pulled the card array from the data object within the object returned from the fetch.
-    //      assigned it to cardArray.
+function renderCardObjArr (cardObjArr){
+    console.log(cardObjArr)
     const navForPoke = document.querySelector(".navBar")
     //      pulled the <nav> for the pokemon to be rendered to
 
     navForPoke.textContent = "";
 
-    cardArray.forEach( cardObj => {
+    cardObjArr.forEach(cardObj => {
+        console.log(cardObj)
+        // debugger
         const img = document.createElement("img");
         //      created <img> for each image being rendered
         const imgSrc = cardObj.images.small;
@@ -36,9 +36,9 @@ function renderNavBar (dataObj){
         const evolvesFrom = cardObj.evolvesFrom;
         const attackArray = cardObj.attacks
         const attacks = [];
-        attackArray.forEach((attackObj) => {
-            attacks.push({'name':attackObj.name , 'attackText':attackObj.text , 'damage':attackObj.damage})
-        })
+        // attackArray.forEach((attackObj) => {
+        //     attacks.push({'name':attackObj.name , 'attackText':attackObj.text , 'damage':attackObj.damage})
+        // })
         // console.log(attacks)
 
 
