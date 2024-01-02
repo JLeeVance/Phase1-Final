@@ -1,140 +1,154 @@
-/* Example CSS styles for the display card layout */
 
-/* Styles for the card container */
+/* Style for the card container */
 .card-container {
+  border-radius: 8px; /*rounds corners*/
+  width: 60%; /*width*/
+  background-color: white; /*background color*/
+  margin-bottom: 10px; /*sets bottom margin*/
   text-align: center; /* Center align content */
+  border: 1px solid white; /* Styles the border of container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*set box shadow*/
 }
 
-/* Styles for the Pokemon name */
+/* Style for the Pokemon name */
 .poke-name {
-  margin-top: 20px; /* Example margin */
+  margin-top: 20px; /* Top margin */
 }
 
-/* Styles for the content wrapper */
+/* Style for the Pokemon Image */
+.poke-image {
+    margin-bottom:10px;
+    margin-right: 30px;
+    background-color: #0d0d0d;
+}
+
+/* Style for the content wrapper */
 .content-wrapper {
   display: flex; /* Use flexbox */
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
-  margin-top: 20px; /* Example margin */
+  margin-top: 20px; /* Top Margin */
 }
 
-/* Styles for the left content (image) */
+/* Style for the left content (image) */
 .content-left {
   flex: 1; /* Take remaining space */
   text-align: center; /* Center content horizontally */
 }
 
-/* Styles for the right content (attributes and button) */
+/* Style for the right content (attributes and button) */
 .content-right {
   flex: 1; /* Take remaining space */
   text-align: center; /* Center content horizontally */
+  margin-right: 10px;
+  margin-left: 50px
 }
 
-/* Styles for the attributes box */
+/* Style for the attributes box */
 .attributes-box {
-  border: 2px solid #ccc; /* Example border style */
-  padding: 10px;
-  margin-top: 20px; /* Example margin for spacing */
+  margin-right: 10px;
+  border: 2px solid #ccc; /* Border style */
+  padding: 10px; /* Padding */
+  margin-top: 20px; /* Margin for top spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*set box shadow*/
 }
 
 /* Styles for the attributes list */
 .attributes-box ul {
   list-style: none; /* Remove default list styles */
-  padding: 0;
+   padding: 0; /* Padding */
 }
 
 /* Style for each attribute item */
 .attributes-box li {
-  margin-bottom: 5px; /* Example margin for spacing between items */
+  margin-bottom: 5px; /* Margin spacing between items */
 }
 
-/* Style for the smaller button */
+/* Style for button */
 .small-button {
-  font-size: 14px; /* Example smaller font size */
-  padding: 5px 10px; /* Example padding */
-  margin-top: 20px; /* Example margin */
+  font-size: 14px; /* Font size */
+  padding: 5px 10px; /* Padding */
+  margin-top: 15px; /* Top Margin */
+  margin-left: 220px;
 }
+/*  Style for body */
 body {
-    background-color: slategray;
-    margin:0;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-    height: auto;
+    background-color: white; /* background color */
+    margin:0; /* Margin */
+    display:flex;                   /* >> Centers body elements << */
+    flex-direction: column;         /*              "              */
+    justify-content: center;        /*              "              */
+    align-items: center;            /*              "              */
+    width:100%;   /* Set to take up whole page */          
+    height: auto; /*< " */
 }
 
 .navbar {
-  overflow: hidden;
-  white-space: nowrap;
-  background-color: slategray;
-  max-width: 100%;
+  overflow: scroll; /* forces scroll bar */
+  white-space: nowrap; /* forces to one line */
+  background-color: white; /*background color*/
+  max-width: 100%; /*max width of nav bar to full width of screen*/
 }
 
 .scroll-container {
-  overflow:auto;
-  align-items: center;
-  overflow: auto;
+  border-radius: 8px; /*rounds corners*/
+  background-color: white; /*background color*/
+  margin-bottom: 10px; /*sets bottom margin*/
+  overflow:auto; /* automatically handles overflow */
+  align-items: center;  /*center items */
 }
 
 .navbar img {
-  width: 150px;
-  height: auto;
-  margin-right: 2.5px;
+  width: 150px; /*sets width of image */
+  height: auto; /*auto height to keep image proportions*/
+  margin-right: 2.5px; /*spacing to keep cards from touching */
 }
 
 .search-bar {
-    display: block;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-    padding: 2.5%;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;                 /* >> Centers body elements << */
+    align-items: center;            /*              "              */
+    justify-content: center;        /*              "              */
+    width: 75%; /*sets width of search bar*/
+    padding: 2.5%; /*padding*/
+    background-color: #fff; /*background color*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*"float" appearence*/
     border-radius: 8px;
 }
 
 .form {
-    margin-bottom: 20px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 20px; /*distance from bottom*/
+    display: flex; /* Use Flexbox layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
 }
 
+/* Styling for form labels */
 .form label {
-    display: block;
-    margin: 10px;
-    font-size: 14px;
-    margin-bottom: 8px;
+    display: block; /* Display labels as block elements */
+    margin: 10px; /* Add margin around labels */
+    font-size: 14px; /* Set font size for labels */
+    margin-bottom: 8px; /* Add space below labels */
 }
 
+/* Styling for form inputs */
 .form input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #0d0d0d;
-    border-radius: 4px;
+    width: 100%; /* Make input fields take up 100% of the container width */
+    padding: 8px; /* Add padding inside input fields */
+    box-sizing: border-box; /* Include padding and border in the total width of the element */
+    border: 1px solid #0d0d0d; /* Add a 1px solid border with a dark color */
+    border-radius: 4px; /* Apply a 4px border-radius for rounded corners */
 }
 
+/* Styling for form buttons */
 .form button {
-    margin:5px;
-    background-color: #ff0000;
-    color: #fff;
-    padding: 8px;
-    border: 1px solid #0d0d0d;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
+    margin: 5px; /* Add margin around buttons */
+    background-color: #ff0000; /* Set background color to red */
+    color: #fff; /* Set text color to white */
+    padding: 8px; /* Add padding inside buttons */
+    border: 1px solid #0d0d0d; /* Add a 1px solid border with a dark color */
+    border-radius: 4px; /* Apply a 4px border-radius for rounded corners */
+    cursor: pointer; /* Set the cursor to a pointer on hover */
+    font-size: 16px; /* Set font size for buttons */
 }
-
-.collection-display {
-  padding: 5px;
-  border: 1px solid #0d0d0d;
-  overflow:auto;
-  align-items: center;
-  overflow: auto;
-  width: 50%;
-  align-items: center;
-}
-

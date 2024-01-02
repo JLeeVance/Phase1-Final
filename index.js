@@ -1,7 +1,9 @@
-fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base").then((resp) => resp.json())
-    .then((dataObj) => renderNavBar(dataObj));
+fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base")
+.then((resp) => resp.json())
+.then((cardObjArr) => renderCardObjArr(cardObjArr.data));
 
     // console.log(dataObj.data[24][`set`][`series`])
+
 
 const imgForDisplay = document.querySelector(".poke-image")
 // console.log(imgForDisplay)
@@ -12,12 +14,14 @@ function renderNavBar (dataObj){
     // console.log(dataObj.data[24]);
     let cardArray = dataObj.data;
     //      pulled the card array from the data object within the object returned from the fetch.
-    //      assigned it to cardArray.
+    //      assigned it to cardArray
     const navForPoke = document.querySelector(".navBar")
     //      pulled the <nav> for the pokemon to be rendered to
 
 
-    cardArray.forEach( cardObj => {
+    cardObjArr.forEach(cardObj => {
+        console.log(cardObj)
+        // debugger
         const img = document.createElement("img");
         //      created <img> for each image being rendered
         const imgSrc = cardObj.images.small;
@@ -39,12 +43,16 @@ function renderNavBar (dataObj){
         const urlToBuyCard = cardObj.tcgplayer['url']
         //      created the urlToBuyCard variable incase we want a cute lil buy button next to the 'Add to my collection' button
         const evolvesFrom = cardObj.evolvesFrom;
-        const attackArray = cardObj.attacks;
-        // const attacks = [];
+
+        navForPoke.appendChild(img);
+
+        const attackArray = cardObj.attacks
+        const attacks = [];
         // attackArray.forEach((attackObj) => {
         //     attacks.push({'name':attackObj.name , 'attackText':attackObj.text , 'damage':attackObj.damage})
         // })
-        navForPoke.appendChild(img);
+        // console.log(attacks)
+
 
 
         img.addEventListener('click', (e) => {   /*  I added this to proceed with the collectio box */

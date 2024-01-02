@@ -6,7 +6,6 @@
   </head>
 
   <body>
-
     <div class="navbar">
       <nav class="scroll-container">
         <!-- Pokemon Cards Rendered here -->
@@ -27,11 +26,7 @@
       </form>
     </div>
 
-    <div
-      id="display-card"
-      class="card-container"
-      style="border: 1px solid black">
-      <!-- solid black rectangle around the section for the selected card -->
+    <div class="card-container">
       <h2 class="poke-name">Placeholder Pokemon Name from API</h2>
       <div class="content-wrapper">
         <!-- display inside of the rectangle -->
@@ -57,11 +52,14 @@
               <li><strong>Placeholder Info: Weight:</strong> 6kg</li>
               <!-- Add other attributes as needed -->
             </ul>
+            <button id="addToCollection" class="small-button" type="button">
+              Add to Collection Below
+            </button>
           </div>
           <!-- End of right side DIV display -->
-          <button id="addToCollection" class="small-button" type="button">
+          <!-- <button id="addToCollection" class="small-button" type="button">
             Add to Collection Below
-          </button>
+          </button> -->
           <!-- button for adding selected card to the DIV "my collection "-->
         </div>
       </div>
@@ -73,7 +71,16 @@
           <img>
         </card>
 
-      </nav>
+    <!-- Card collection -->
+    <div class="navbar">
+      <h2>My Collection</h2>
+      <div class="scroll-container">
+        <img
+          src="https://theprintedmeeple.com/cdn/shop/products/pkm_placeholder_0da1c595-a0c3-4020-b102-5efecc314446_370x.png?v=1703784246"
+          alt="Placeholder Image"
+        />
+        <!--My collection of cards -->
+      </div>
     </div>
   </body>
 </html>
