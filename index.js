@@ -4,12 +4,20 @@ fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base")
 
     // console.log(dataObj.data[24][`set`][`series`])
 
-function renderCardObjArr (cardObjArr){
-    console.log(cardObjArr)
+
+const imgForDisplay = document.querySelector(".poke-image")
+// console.log(imgForDisplay)
+const pokeName = document.querySelector(".poke-name")
+
+
+function renderNavBar (dataObj){
+    // console.log(dataObj.data[24]);
+    let cardArray = dataObj.data;
+    //      pulled the card array from the data object within the object returned from the fetch.
+    //      assigned it to cardArray
     const navForPoke = document.querySelector(".navBar")
     //      pulled the <nav> for the pokemon to be rendered to
 
-    navForPoke.textContent = "";
 
     cardObjArr.forEach(cardObj => {
         console.log(cardObj)
@@ -20,6 +28,7 @@ function renderCardObjArr (cardObjArr){
         //      the image source was within the key of images
         //      chose the small one for loading time?
         img.src = imgSrc;
+        img.className = "navBar";
         const name = cardObj.name;
         //      created the variable of name for EACH card as it was passed through the loop.
         const cardType = cardObj.supertype;
@@ -34,6 +43,9 @@ function renderCardObjArr (cardObjArr){
         const urlToBuyCard = cardObj.tcgplayer['url']
         //      created the urlToBuyCard variable incase we want a cute lil buy button next to the 'Add to my collection' button
         const evolvesFrom = cardObj.evolvesFrom;
+
+        navForPoke.appendChild(img);
+
         const attackArray = cardObj.attacks
         const attacks = [];
         // attackArray.forEach((attackObj) => {
@@ -43,12 +55,46 @@ function renderCardObjArr (cardObjArr){
 
 
 
-
-
-        navForPoke.appendChild(img); 
-    });
+        img.addEventListener('click', (e) => {   /*  I added this to proceed with the collectio box */
+            imgForDisplay.src = e.target.currentSrc;
+            pokeName.textContent = name;
+        })
         
+    });       
    };
+
+const collectionDisplay = document.querySelector(".collection-display");
+const buttonAddCollect = document.querySelector("#addToCollection");
+buttonAddCollect.addEventListener('click', () => addtoCollection());
+//When clicked
+function addtoCollection() {
+    let name = pokeName.textContent;
+    let ownedImgSrc = imgForDisplay.src;
+    // let collectionObject = {
+    //     "name": name,
+    //     "src": ownedImgSrc,
+    // };
+    // console.log(collectionObject);
+    fetch("http://localhost:3000/data", {
+        method: "POST",
+        body: JSON.stringify({
+            "name": name,
+            "src": ownedImgSrc,
+        }),
+        headers: {
+            "content-type": "application/json; charset=UTF-8",
+            // "accept": "application/json",
+        }
+    }).then((resp) => resp.json())
+    .then((data) => console.log(data));
+}
+//1. Grab data from current img.src on disply, and name.
+//2. Create data object to send to my collection
+//3. PATCH request data into db.json
+//4. Attach render character function at end.
+
+
+
 
 
 
