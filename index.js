@@ -1,4 +1,4 @@
-fetch("https://api.pokemontcg.io/v2/cards/?q=nationalPokedexNumbers:1").then((resp) => resp.json())
+fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base").then((resp) => resp.json())
     .then((dataObj) => renderNavBar(dataObj));
 
     // console.log(dataObj.data[24][`set`][`series`])
@@ -25,8 +25,13 @@ function renderNavBar (dataObj){
         const imgSrc = cardObj.images.small;
         //      the image source was within the key of images
         //      chose the small one for loading time?
+        img.src = imgSrc;
         const name = cardObj.name;
         //      created the variable of name for EACH card as it was passed through the loop.
+        const cardType = cardObj.supertype;
+        //      created the variable 'cardType' - 'Pokemon' - 'Trainer' - 'Item' etc
+        const cardHp = cardObj.hp;
+        //      created the variable 'cardHP' to be used in the description box
         const flavorText = cardObj.flavorText
         //      created the variable flavorText which is the text description for the Pokemon
         //      on the card, IF if it present on the card. 
@@ -34,16 +39,21 @@ function renderNavBar (dataObj){
         //      created the cardRarity variable for each card, could be used in the description when clicked
         const urlToBuyCard = cardObj.tcgplayer['url']
         //      created the urlToBuyCard variable incase we want a cute lil buy button next to the 'Add to my collection' button
+        const evolvesFrom = cardObj.evolvesFrom;
         const attackArray = cardObj.attacks
         const attacks = [];
         attackArray.forEach((attackObj) => {
             attacks.push({'name':attackObj.name , 'attackText':attackObj.text , 'damage':attackObj.damage})
         })
-        console.log(attacks)
+        // console.log(attacks)
 
-        img.src = imgSrc;
         img.style.margin = 3;
-        
+        // img.addEventListener('click' , () => console.log(name));
+
+
+
+
+
         navForPoke.appendChild(img); 
     });
         
