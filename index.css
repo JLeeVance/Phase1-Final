@@ -152,3 +152,11 @@ body {
     cursor: pointer; /* Set the cursor to a pointer on hover */
     font-size: 16px; /* Set font size for buttons */
 }
+.myCollection-container {
+
+  display: grid;
+  width: 60%;
+}
+#navbar-bottom {
+  display: table-row;
+}

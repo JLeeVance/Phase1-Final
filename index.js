@@ -1,15 +1,11 @@
 fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base")
 .then((resp) => resp.json())
-.then((dataObj) => renderNavBar(dataObj));
+.then((dataObj) => renderNavBar(dataObj))
 
-
-// console.log(dataObj.data[24][`set`][`series`])
 
 const imgForDisplay = document.querySelector(".poke-image");
 // console.log(imgForDisplay)
-
 const pokeName = document.querySelector(".poke-name")
-
 
 function renderNavBar (dataObj){
     // console.log(dataObj.data[24]);
@@ -21,7 +17,7 @@ function renderNavBar (dataObj){
 
 
     cardArray.forEach(cardObj => {
-        console.log(cardObj)
+        // console.log(cardObj)
         // debugger
         const img = document.createElement("img");
         //      created <img> for each image being rendered
@@ -53,9 +49,6 @@ function renderNavBar (dataObj){
         //     attacks.push({'name':attackObj.name , 'attackText':attackObj.text , 'damage':attackObj.damage})
         // })
         // console.log(attacks)
-
-
-
         img.addEventListener('click', (e) => {   /*  I added this to proceed with the collectio box */
             imgForDisplay.src = e.target.currentSrc;
             pokeName.textContent = name;
@@ -65,42 +58,45 @@ function renderNavBar (dataObj){
    };
 
 
-const collectionDisplay = document.querySelector("#collection-container");
-const buttonAddCollect = document.querySelector("#addToCollection");
-buttonAddCollect.addEventListener("click", () => addtoCollection());
-//When clicked
-function addtoCollection() {
+const collectionDisplay = document.querySelector("#collection-container"); /*grabbed the container*/
+const buttonToAdd = document.querySelector("#addToCollection");
 
+
+buttonToAdd.addEventListener("click", () => addtoCollection());
+
+
+function addtoCollection() {
     let name = pokeName.textContent;
     let ownedImgSrc = imgForDisplay.src;
     let collectionObject = {
         "name": name,
         "src": ownedImgSrc,
     };
-    // console.log(collectionObject);
+
     fetch("http://localhost:3000/data", {
         method: "POST",
-        body: JSON.stringify({
-            "name": name,
-            "src": ownedImgSrc,
-        }),
         headers: {
             "content-type": "application/json",
             "accept": "application/json",
-        }
-    }).then((resp) => resp.json())
-
-    .then((data) => console.log(data));
+        },
+        body: JSON.stringify(collectionObject),
+    })
+    .then((resp) => resp.json())
+    .then(() => fetchAndRenderLocal())
 }
-//1. Grab data from current img.src on disply, and name.
-//2. Create data object to send to my collection
-//3. PATCH request data into db.json
-//4. Attach render character function at end.
 
-// The code below was a fetch to the card branch of the API, the cards are contained in the data key, I accessed the 24th card object in the array from
-// the data key via bracket notation, and could only get to the nested information in the set object via bracket notation!
-
-// fetch("https://api.pokemontcg.io/v2/cards/").then((resp) => resp.json())
-//     .then((dataObj) => console.log(dataObj.data[24][`set`][`series`]))
-
-//  The code above resulted in "Base" being console.logged.
+function fetchAndRenderLocal() {
+    const myCollection = document.querySelector("#myCollection-div");
+    fetch("http://localhost:3000/data").then(resp => resp.json()).then((data) => {
+    data.forEach((localCardObj) => {
+            const card = document.createElement("card");
+            const img = document.createElement("img");
+            const h4 = document.createElement("h4");
+            img.src = localCardObj.src;
+            h4.textContent = localCardObj.name;
+            
+            card.append(h4,img);
+            myCollection.append(card);
+        })
+    })
+ }
