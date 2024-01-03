@@ -28,6 +28,7 @@ function renderNavBar (dataObj){
         const flavorText = cardObj.flavorText           /* created the variable flavorText which is the text description for the Pokemon   */
         const cardRarity = cardObj.rarity               /* created the cardRarity variable for each card, could be used in the description when clicked  */
         const nationalPokedexNumbers = cardObj.nationalPokedexNumbers
+        const cardRules = cardObj.cardRules
 
         /* const urlToBuyCard = cardObj.tcgplayer['url'] */   /* created the urlToBuyCard variable incase we want a cute lil buy button next to the 'Add to my collection' button */
         /* const evolvesFrom = cardObj.evolvesFrom; */
@@ -63,9 +64,19 @@ buttonToAdd.addEventListener("click", () => addToCollection());/*called function
 function addToCollection() {                /* This function is only called in the event listener*/
     let name = pokeName.textContent;        /* pulled name info from existing poke on display */
     let ownedImgSrc = imgForDisplay.src;    /* Got source for current poke img on display */
+    let type = typeTitle.textContent;
+    let description = descTitle.textContent;
+    let natPokeNum = selectedNatDex.textContent;
+    let rules = rulesTitle.textContent;
+
+
     let collectionObject = {                /* Created our object we are sending to local db */
         "name": name,
         "src": ownedImgSrc,
+        "type": type,
+        "description": description,
+        "natPokeNum": natPokeNum,
+        "rules": rules,
     };
 
     fetch("http://localhost:3000/data", {   /* fetched to our local db via URL */
