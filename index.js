@@ -1,4 +1,4 @@
-fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base")
+fetch("https://api.pokemontcg.io/v2/cards/?q=name:charmander")
 .then((resp) => resp.json())
 .then((dataObj) => renderNavBar(dataObj)).then(fetchAndRenderLocal())
 
@@ -18,7 +18,7 @@ function renderNavBar (dataObj){
 
     cardArray.forEach(cardObj => {                      /* console.log(cardObj) */
         const img = document.createElement("img");      /* created <img> for each image being rendered */
-        const imgSrc = cardObj.images.small;            /* grabbed img src from the API (data.images.small) */
+        const imgSrc = cardObj.images.large;            /* grabbed img src from the API (data.images.small) */
         img.src = imgSrc;
         img.className = "navBar";
         const name = cardObj.name;                      /* created the variable of name for EACH card as it was passed through the loop. */
@@ -26,13 +26,16 @@ function renderNavBar (dataObj){
         const cardHp = cardObj.hp;                      /* created the variable 'cardHP' to be used in the description box */
         const flavorText = cardObj.flavorText           /* created the variable flavorText which is the text description for the Pokemon   */
         const cardRarity = cardObj.rarity               /* created the cardRarity variable for each card, could be used in the description when clicked  */
-        const urlToBuyCard = cardObj.tcgplayer['url']   /* created the urlToBuyCard variable incase we want a cute lil buy button next to the 'Add to my collection' button */
-        const evolvesFrom = cardObj.evolvesFrom;
+        const nationalPokedexNumbers = cardObj.nationalPokedexNumbers
+
+        /* const urlToBuyCard = cardObj.tcgplayer['url'] */   /* created the urlToBuyCard variable incase we want a cute lil buy button next to the 'Add to my collection' button */
+        /* const evolvesFrom = cardObj.evolvesFrom; */
+        /* stretch goals! */
 
         navForPoke.appendChild(img);
 
-        const attackArray = cardObj.attacks
-        const attacks = []; /* This does work! I think the errors are due to the cards with no attacks */
+        // const attackArray = cardObj.attacks;
+        // const attacks = []; /* This does work! I think the errors are due to the cards with no attacks */
                             /*  attackArray.forEach((attackObj) => {                                                                */
                             /*      attacks.push({'name':attackObj.name , 'attackText':attackObj.text , 'damage':attackObj.damage}) */
                             /*  })                                                                                                  */
@@ -42,7 +45,7 @@ function renderNavBar (dataObj){
           pokeName.textContent = name; //click for name
           typeTitle.textContent = cardType; //click for type
           descTitle.textContent = flavorText; //click for description
-          selectedNatDex.textContent = nationalPokedexNumbers; //click for national pokedex number
+          selectedNatDex.textContent = nationalPokedexNumbers; //click for national pokedex number  
           rarityTitle.textContent = cardRarity; //  click for rarity
           rulesTitle.textContent = cardRules; //  click for rules
           console.log(e);

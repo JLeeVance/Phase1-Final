@@ -1,29 +1,9 @@
 {
   "data": [
     {
-      "name": "Alakazam",
-      "src": "https://images.pokemontcg.io/base4/1.png",
-      "id": 1
-    },
-    {
-      "name": "Alakazam",
-      "src": "https://images.pokemontcg.io/base1/1.png",
-      "id": 2
-    },
-    {
-      "name": "Charizard",
-      "src": "https://images.pokemontcg.io/base4/4.png",
-      "id": 3
-    },
-    {
-      "name": "Hitmonchan",
-      "src": "https://images.pokemontcg.io/base1/7.png",
-      "id": 4
-    },
-    {
-      "name": "Clefable",
-      "src": "https://images.pokemontcg.io/base4/5.png",
-      "id": 5
+      "name": "Charizard ex",
+      "src": "https://images.pokemontcg.io/sv3pt5/199.png",
+      "id": 14
     }
   ]
 }
