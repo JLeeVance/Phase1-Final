@@ -16,10 +16,15 @@
 
 /* Style for the Pokemon Image */
 .poke-image {
-
-    margin-bottom:10px;
-    margin-right: 30px
-
+    padding: 0;
+    border-radius: 20px;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.75);
+    width: 300px; /*sets width of image */
+    height: auto; /*auto height to keep image proportions*/
+    margin-right: 5px; /*spacing to keep cards from touching */
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-bottom: 10px;
 }
 
 /* Style for the content wrapper */
@@ -86,14 +91,14 @@ body {
 }
 
 .navbar {
-  border:1px solid black;
+  /* border:1px solid black; */
   border-radius: 10px;
-  background-color: black; /*background color*/
+  background-color: lightgrey; /*background color*/
   max-width: 100%; /*max width of nav bar to full width of screen*/
 }
 
 .scroll-container {
-  border-radius: 8px; /*rounds corners*/
+  border-radius: 5px; /*rounds corners*/
   background-color: lightgrey; /*background color*/
   margin-bottom: 10px; /*sets bottom margin*/
   overflow: auto; /* automatically handles overflow */
@@ -101,9 +106,14 @@ body {
 }
 
 .navbar img {
+  /* border: 1px solid black; */
+  box-shadow:0 4px 8px rgba(0, 0, 0, 0.75) ;
   width: 150px; /*sets width of image */
   height: auto; /*auto height to keep image proportions*/
-  margin-right: 2.5px; /*spacing to keep cards from touching */
+  margin-right: 5px; /*spacing to keep cards from touching */
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 .search-bar {
@@ -178,4 +188,6 @@ body {
     overflow-y: scroll;
     background-color: lightgrey;
 }
+
+
 
