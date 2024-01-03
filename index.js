@@ -1,6 +1,6 @@
 fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base")
 .then((resp) => resp.json())
-.then((cardObjArr) => renderCardObjArr(cardObjArr.data));
+.then((dataObj) => renderNavBar(dataObj));
 
     // console.log(dataObj.data[24][`set`][`series`])
 
@@ -19,7 +19,7 @@ function renderNavBar (dataObj){
     //      pulled the <nav> for the pokemon to be rendered to
 
 
-    cardObjArr.forEach(cardObj => {
+    cardArray.forEach(cardObj => {
         console.log(cardObj)
         // debugger
         const img = document.createElement("img");
@@ -70,10 +70,10 @@ buttonAddCollect.addEventListener('click', () => addtoCollection());
 function addtoCollection() {
     let name = pokeName.textContent;
     let ownedImgSrc = imgForDisplay.src;
-    // let collectionObject = {
-    //     "name": name,
-    //     "src": ownedImgSrc,
-    // };
+    let collectionObject = {
+        "name": name,
+        "src": ownedImgSrc,
+    };
     // console.log(collectionObject);
     fetch("http://localhost:3000/data", {
         method: "POST",
