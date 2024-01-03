@@ -19,6 +19,11 @@
       "name": "Hitmonchan",
       "src": "https://images.pokemontcg.io/base1/7.png",
       "id": 4
+    },
+    {
+      "name": "Clefable",
+      "src": "https://images.pokemontcg.io/base4/5.png",
+      "id": 5
     }
   ]
 }
