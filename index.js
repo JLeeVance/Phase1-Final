@@ -8,6 +8,13 @@ const imgForDisplay = document.querySelector(".poke-image");
 // console.log(imgForDisplay)
 const pokeName = document.querySelector(".poke-name");
 
+// Selecting the span elements with the class "title" so that we can keep the titles in the description box BOLD while dynamically changing the text content inside
+const typeTitle = document.querySelector(".selectedType .title");
+const descTitle = document.querySelector(".selectedDesc .title");
+const rarityTitle = document.querySelector(".selectedRarity .title");
+const selectedNatDex = document.querySelector(".selectedNatDex .title");
+const rulesTitle = document.querySelector(".selectedRules .title");
+
 function renderNavBar(dataObj) {
   // console.log(dataObj.data[24]);
   let cardArray = dataObj.data;
@@ -40,6 +47,10 @@ function renderNavBar(dataObj) {
     const urlToBuyCard = cardObj.tcgplayer["url"];
     //      created the urlToBuyCard variable incase we want a cute lil buy button next to the 'Add to my collection' button
     const evolvesFrom = cardObj.evolvesFrom;
+    //      created the nationalPokedexNumbers variable for each card, showing which number the pokemon is in the national pokedex
+    const nationalPokedexNumbers = cardObj.nationalPokedexNumbers;
+    // created the cardRules variable for each card, showing the rules for TRAINER cards - not applicable to Pokemon cards
+    const cardRules = cardObj.rules;
 
     navForPoke.appendChild(img);
 
@@ -51,9 +62,14 @@ function renderNavBar(dataObj) {
     // console.log(attacks)
 
     img.addEventListener("click", (e) => {
-      /*  I added this to proceed with the collectio box */
-      imgForDisplay.src = e.target.currentSrc;
-      pokeName.textContent = name;
+      imgForDisplay.src = e.target.currentSrc; //click for image
+      pokeName.textContent = name; //click for name
+      typeTitle.textContent = cardType; //click for type
+      descTitle.textContent = flavorText; //click for description
+      selectedNatDex.textContent = nationalPokedexNumbers; //click for national pokedex number
+      rarityTitle.textContent = cardRarity; //  click for rarity
+      rulesTitle.textContent = cardRules; //  click for rules
+      console.log(e);
     });
   });
 }
