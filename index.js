@@ -1,7 +1,7 @@
 fetch("https://api.pokemontcg.io/v2/cards/?q=name:charmander")
 .then((resp) => resp.json())
 .then((dataObj) => renderNavBar(dataObj))
-// .then(fetchAndRenderLocal())
+.then(fetchAndRenderLocal())
 
 const imgForDisplay = document.querySelector(".poke-image"); /* grabbed the img container for poke Display */
 const pokeName = document.querySelector(".poke-name")        /* grabbed the poke name container for poke Display */

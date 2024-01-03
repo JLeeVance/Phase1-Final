@@ -2,10 +2,10 @@
 .card-container {
   border-radius: 25px; /*rounds corners*/
   width: 70%; /*width*/
-  background-color: lightgrey; /*background color*/
+  background-color: white; /*background color*/
   margin-bottom: 10px; /*sets bottom margin*/
   text-align: center; /* Center align content */
-  border: 1px solid lightgrey; /* Styles the border of container */
+  border: 1px solid white; /* Styles the border of container */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /*set box shadow*/
 }
 
@@ -24,7 +24,7 @@
     margin-right: 5px; /*spacing to keep cards from touching */
     margin-bottom: 10px;
     margin-left: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 
 /* Style for the content wrapper */
@@ -52,10 +52,12 @@
 /* Style for the attributes box */
 .attributes-box {
   margin-right: 10px;
-  border: 2px solid #ccc; /* Border style */
+  border-radius: 20px;
+  border: 1px solid lightgray; /* Border style */
+  background-color: lightgray;
   padding: 10px; /* Padding */
-  margin-top: 20px; /* Margin for top spacing */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*set box shadow*/
+  margin-top: 5px; /* Margin for top spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75); /*set box shadow*/
 }
 
 /* Styles for the attributes list */
@@ -78,7 +80,7 @@
 }
 /*  Style for body */
 body {
-    background-color: lightseagreen;
+    background-color: white;
      /* background color */
     margin:0; /* Margin */
     display:flex;                   /* >> Centers body elements << */
@@ -93,13 +95,13 @@ body {
 .navbar {
   /* border:1px solid black; */
   border-radius: 10px;
-  background-color: lightgrey; /*background color*/
+  background-color: white; /*background color*/
   max-width: 100%; /*max width of nav bar to full width of screen*/
 }
 
 .scroll-container {
   border-radius: 5px; /*rounds corners*/
-  background-color: lightgrey; /*background color*/
+  background-color: white; /*background color*/
   margin-bottom: 10px; /*sets bottom margin*/
   overflow: auto; /* automatically handles overflow */
   align-items: center; /*center items */
@@ -122,10 +124,10 @@ body {
     display: block;                 /* >> Centers body elements << */
     align-items: center;            /*              "              */
     justify-content: center;        /*              "              */
-    width: 75%; /*sets width of search bar*/
+    width: 90%; /*sets width of search bar*/
     padding: 2.5%; /*padding*/
-    background-color: lightgrey; /*background color*/
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*"float" appearence*/
+    background-color: white; /*background color*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75); /*"float" appearence*/
     border-radius: 25px;
 }
 
@@ -174,8 +176,8 @@ body {
     justify-content: center;        /*              "              */
     width: 65%; /*sets width of search bar*/
     padding: 2.5%; /*padding*/
-    background-color: lightgrey; /*background color*/
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /*"float" appearence*/
+    background-color: white; /*background color*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75); /*"float" appearence*/
     border-radius: 25px;
 }
 
@@ -186,7 +188,7 @@ body {
 
 .navbar.bottom {
     overflow-y: scroll;
-    background-color: lightgrey;
+    background-color: white;
 }
 
 
