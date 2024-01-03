@@ -1,4 +1,4 @@
-fetch("https://api.pokemontcg.io/v2/cards/?q=name:charmander")
+fetch("https://api.pokemontcg.io/v2/cards/pagesize")
 .then((resp) => resp.json())
 .then((dataObj) => renderNavBar(dataObj))
 .then(fetchAndRenderLocal())
