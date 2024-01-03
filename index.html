@@ -6,20 +6,20 @@
   </head>
 
   <body>
-    <div class="navbar">
+    <div class="navbar top">
       <nav class="scroll-container">
         <!-- Pokemon Cards Rendered here -->
       </nav>
     </div>
     <div class="search-bar">
       <form class="form">
-        <label for="Pokemon Name">Pokemon Name : </label>
+        <label for="byName">Pokemon Name : </label>
         <input type="text" name="Pokemon Name" id="byName" />
 
-        <label for="Pokemon Type">Pokemon Type : </label>
+        <label for="byType">Pokemon Type : </label>
         <input type="text" name="type" id="byType" />
 
-        <label for="Pokemon Id">Pokemon Id : </label>
+        <label for="byId">Pokemon Id : </label>
         <input type="text" name="Pokemon id" id="byId" />
 
         <button type="submit" class="submit-button">Catch' em All!</button>
@@ -53,33 +53,23 @@
               <!-- Add other attributes as needed -->
             </ul>
             <button id="addToCollection" class="small-button" type="button">
-              Add to Collection Below
+              Add to Collection Below!
             </button>
           </div>
           <!-- End of right side DIV display -->
-          <!-- <button id="addToCollection" class="small-button" type="button">
-            Add to Collection Below
-          </button> -->
-          <!-- button for adding selected card to the DIV "my collection "-->
         </div>
       </div>
     </div>
-    <div class='collection-display'>
-      <nav>
-        <card>
-          <h4>Card Title</h4>
-          <img>
-        </card>
-
-    <!-- Card collection -->
-    <div class="navbar">
-      <h2>My Collection</h2>
-      <div class="scroll-container">
-        <img
-          src="https://theprintedmeeple.com/cdn/shop/products/pkm_placeholder_0da1c595-a0c3-4020-b102-5efecc314446_370x.png?v=1703784246"
-          alt="Placeholder Image"
-        />
-        <!--My collection of cards -->
+    <div class="collection-container">
+      <div class="navbar bottom">
+        <h2>My Collection</h2>
+        <div class="scroll-container">
+          <img
+            src="https://theprintedmeeple.com/cdn/shop/products/pkm_placeholder_0da1c595-a0c3-4020-b102-5efecc314446_370x.png?v=1703784246"
+            alt="Placeholder Image"
+          />
+          <!--My collection of cards -->
+        </div>
       </div>
     </div>
   </body>

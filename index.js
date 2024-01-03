@@ -2,11 +2,12 @@ fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base")
 .then((resp) => resp.json())
 .then((dataObj) => renderNavBar(dataObj));
 
-    // console.log(dataObj.data[24][`set`][`series`])
 
+// console.log(dataObj.data[24][`set`][`series`])
 
-const imgForDisplay = document.querySelector(".poke-image")
+const imgForDisplay = document.querySelector(".poke-image");
 // console.log(imgForDisplay)
+
 const pokeName = document.querySelector(".poke-name")
 
 
@@ -63,11 +64,13 @@ function renderNavBar (dataObj){
     });       
    };
 
-const collectionDisplay = document.querySelector(".collection-display");
+
+const collectionDisplay = document.querySelector("#collection-container");
 const buttonAddCollect = document.querySelector("#addToCollection");
-buttonAddCollect.addEventListener('click', () => addtoCollection());
+buttonAddCollect.addEventListener("click", () => addtoCollection());
 //When clicked
 function addtoCollection() {
+
     let name = pokeName.textContent;
     let ownedImgSrc = imgForDisplay.src;
     let collectionObject = {
@@ -86,19 +89,13 @@ function addtoCollection() {
             "accept": "application/json",
         }
     }).then((resp) => resp.json())
+
     .then((data) => console.log(data));
 }
 //1. Grab data from current img.src on disply, and name.
 //2. Create data object to send to my collection
 //3. PATCH request data into db.json
 //4. Attach render character function at end.
-
-
-
-
-
-
-
 
 // The code below was a fetch to the card branch of the API, the cards are contained in the data key, I accessed the 24th card object in the array from
 // the data key via bracket notation, and could only get to the nested information in the set object via bracket notation!
@@ -107,4 +104,3 @@ function addtoCollection() {
 //     .then((dataObj) => console.log(dataObj.data[24][`set`][`series`]))
 
 //  The code above resulted in "Base" being console.logged.
-
