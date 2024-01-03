@@ -13,6 +13,17 @@ const rarityTitle = document.querySelector(".selectedRarity .title");
 const selectedNatDex = document.querySelector(".selectedNatDex .title");
 const rulesTitle = document.querySelector(".selectedRules .title");
 
+const form = document.querySelector(".form") /* grabbed search button */
+form.addEventListener('submit' , (e) => handleSubmit(e))
+function handleSubmit (e) {
+    e.preventDefault();
+    let searchField = 
+    console.log(e.target[0].value)
+}
+
+
+
+
 function renderNavBar (dataObj){
     let cardArray = dataObj.data;                       /* pulled the card array from the data object within the object returned from the fetch. */
     const navForPoke = document.querySelector(".navBar")/*     pulled the <nav> for the pokemon to be rendered to */
@@ -50,7 +61,7 @@ function renderNavBar (dataObj){
           selectedNatDex.textContent = nationalPokedexNumbers; //click for national pokedex number  
           rarityTitle.textContent = cardRarity; //  click for rarity
           rulesTitle.textContent = cardRules; //  click for rules
-          console.log(e);
+        //   console.log(e);
         });  
     });       
    };
@@ -88,13 +99,25 @@ function addToCollection() {                /* This function is only called in t
         body: JSON.stringify(collectionObject),
     })
     .then((resp) => resp.json())
-    .then(() => fetchAndRenderLocal())      /* moved the function out of this code block */
+    .then(() => createCard(collectionObject) )      /* moved the function out of this code block */
 }
 
+
+function createCard(collectionObject) {
+    const myCollection = document.querySelector("#myCollection-div");
+    const card = document.createElement("card");
+    const img = document.createElement("img");
+    const h4 = document.createElement("h4");
+    img.src = collectionObject.src;
+    h4.textContent = collectionObject.name;
+    card.append(h4, img);
+    myCollection.append(card);
+
+}
 function fetchAndRenderLocal() {                                        /* This fuction creates a card tag, img tag, and the header */
     const myCollection = document.querySelector("#myCollection-div");   /* grabbed the div that the cards are going into */
-    fetch("http://localhost:3000/data").then(resp => resp.json()).then((data) => {
-    data.forEach((localCardObj) => {
+    fetch("http://localhost:3000/data").then(resp => resp.json()).then((localCardObj) => {
+    localCardObj.forEach((localCardObj) => {
             const card = document.createElement("card");
             const img = document.createElement("img");
             const h4 = document.createElement("h4");
