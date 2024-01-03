@@ -1,13 +1,13 @@
 
 /* Style for the card container */
 .card-container {
-  border-radius: 8px; /*rounds corners*/
-  width: 60%; /*width*/
-  background-color: white; /*background color*/
+  border-radius: 25px; /*rounds corners*/
+  width: 70%; /*width*/
+  background-color: lightgrey; /*background color*/
   margin-bottom: 10px; /*sets bottom margin*/
   text-align: center; /* Center align content */
-  border: 1px solid white; /* Styles the border of container */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*set box shadow*/
+  border: 1px solid lightgrey; /* Styles the border of container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /*set box shadow*/
 }
 
 /* Style for the Pokemon name */
@@ -18,8 +18,7 @@
 /* Style for the Pokemon Image */
 .poke-image {
     margin-bottom:10px;
-    margin-right: 30px;
-    background-color: #0d0d0d;
+    margin-right: 30px
 }
 
 /* Style for the content wrapper */
@@ -73,7 +72,8 @@
 }
 /*  Style for body */
 body {
-    background-color: white; /* background color */
+    background-color: lightseagreen;
+     /* background color */
     margin:0; /* Margin */
     display:flex;                   /* >> Centers body elements << */
     flex-direction: column;         /*              "              */
@@ -84,15 +84,14 @@ body {
 }
 
 .navbar {
-  overflow: scroll; /* forces scroll bar */
-  white-space: nowrap; /* forces to one line */
+  /* overflow: scroll; forces scroll bar */
   background-color: white; /*background color*/
   max-width: 100%; /*max width of nav bar to full width of screen*/
 }
 
 .scroll-container {
   border-radius: 8px; /*rounds corners*/
-  background-color: white; /*background color*/
+  background-color: lightgrey; /*background color*/
   margin-bottom: 10px; /*sets bottom margin*/
   overflow:auto; /* automatically handles overflow */
   align-items: center;  /*center items */
@@ -112,9 +111,9 @@ body {
     justify-content: center;        /*              "              */
     width: 75%; /*sets width of search bar*/
     padding: 2.5%; /*padding*/
-    background-color: #fff; /*background color*/
+    background-color: lightgrey; /*background color*/
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*"float" appearence*/
-    border-radius: 8px;
+    border-radius: 25px;
 }
 
 .form {
@@ -143,12 +142,36 @@ body {
 
 /* Styling for form buttons */
 .form button {
+    width: 350px;
     margin: 5px; /* Add margin around buttons */
     background-color: #ff0000; /* Set background color to red */
-    color: #fff; /* Set text color to white */
+    color: white; /* Set text color to white */
     padding: 8px; /* Add padding inside buttons */
     border: 1px solid #0d0d0d; /* Add a 1px solid border with a dark color */
     border-radius: 4px; /* Apply a 4px border-radius for rounded corners */
     cursor: pointer; /* Set the cursor to a pointer on hover */
     font-size: 16px; /* Set font size for buttons */
+}
+
+.collection-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;                 /* >> Centers body elements << */
+    align-items: center;            /*              "              */
+    justify-content: center;        /*              "              */
+    width: 65%; /*sets width of search bar*/
+    padding: 2.5%; /*padding*/
+    background-color: lightgrey; /*background color*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /*"float" appearence*/
+    border-radius: 25px;
+}
+
+.navbar.top {
+    overflow-x:scroll;
+    white-space: nowrap; /* forces to one line */
+}
+
+.navbar.bottom {
+    overflow-y: scroll;
+    background-color: lightgrey;
 }
