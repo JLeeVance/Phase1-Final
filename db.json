@@ -1,13 +1,5 @@
 {
   "data": [
-    {
-      "name": "Charmander",
-      "src": "https://images.pokemontcg.io/sm9/11_hires.png",
-      "type": "Pokémon",
-      "description": "The flame on its tail indicates Charmander's life force. If it is healthy, the flame burns brightly.",
-      "natPokeNum": "4",
-      "rules": "",
-      "id": 1
-    }
+  
   ]
 }
