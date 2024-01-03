@@ -84,8 +84,9 @@ body {
 }
 
 .navbar {
-  /* overflow: scroll; forces scroll bar */
-  background-color: white; /*background color*/
+  border:1px solid black;
+  border-radius: 10px;
+  background-color: black; /*background color*/
   max-width: 100%; /*max width of nav bar to full width of screen*/
 }
 
