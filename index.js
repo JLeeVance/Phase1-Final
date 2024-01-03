@@ -1,11 +1,13 @@
 fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base")
-  .then((resp) => resp.json())
-  .then((dataObj) => renderNavBar(dataObj));
+.then((resp) => resp.json())
+.then((dataObj) => renderNavBar(dataObj));
+
 
 // console.log(dataObj.data[24][`set`][`series`])
 
 const imgForDisplay = document.querySelector(".poke-image");
 // console.log(imgForDisplay)
+
 const pokeName = document.querySelector(".poke-name");
 
 // Selecting the span elements with the class "title" so that we can keep the titles in the description box BOLD while dynamically changing the text content inside
@@ -74,30 +76,32 @@ function renderNavBar(dataObj) {
   });
 }
 
+
 const collectionDisplay = document.querySelector("#collection-container");
 const buttonAddCollect = document.querySelector("#addToCollection");
 buttonAddCollect.addEventListener("click", () => addtoCollection());
 //When clicked
 function addtoCollection() {
-  let name = pokeName.textContent;
-  let ownedImgSrc = imgForDisplay.src;
-  // let collectionObject = {
-  //     "name": name,
-  //     "src": ownedImgSrc,
-  // };
-  // console.log(collectionObject);
-  fetch("http://localhost:3000/data", {
-    method: "POST",
-    body: JSON.stringify({
-      name: name,
-      src: ownedImgSrc,
-    }),
-    headers: {
-      "content-type": "application/json; charset=UTF-8",
-      // "accept": "application/json",
-    },
-  })
-    .then((resp) => resp.json())
+
+    let name = pokeName.textContent;
+    let ownedImgSrc = imgForDisplay.src;
+    let collectionObject = {
+        "name": name,
+        "src": ownedImgSrc,
+    };
+    // console.log(collectionObject);
+    fetch("http://localhost:3000/data", {
+        method: "POST",
+        body: JSON.stringify({
+            "name": name,
+            "src": ownedImgSrc,
+        }),
+        headers: {
+            "content-type": "application/json",
+            "accept": "application/json",
+        }
+    }).then((resp) => resp.json())
+
     .then((data) => console.log(data));
 }
 //1. Grab data from current img.src on disply, and name.
