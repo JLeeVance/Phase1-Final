@@ -1,6 +1,7 @@
 fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base")
 .then((resp) => resp.json())
-.then((dataObj) => renderNavBar(dataObj)).then(fetchAndRenderLocal())
+.then((dataObj) => renderNavBar(dataObj))
+// .then(fetchAndRenderLocal())
 
 const imgForDisplay = document.querySelector(".poke-image"); /* grabbed the img container for poke Display */
 const pokeName = document.querySelector(".poke-name")        /* grabbed the poke name container for poke Display */
@@ -18,7 +19,7 @@ function renderNavBar (dataObj){
 
     cardArray.forEach(cardObj => {                      /* console.log(cardObj) */
         const img = document.createElement("img");      /* created <img> for each image being rendered */
-        const imgSrc = cardObj.images.small;            /* grabbed img src from the API (data.images.small) */
+        const imgSrc = cardObj.images.large;            /* grabbed img src from the API (data.images.small) */
         img.src = imgSrc;
         img.className = "navBar";
         const name = cardObj.name;                      /* created the variable of name for EACH card as it was passed through the loop. */
