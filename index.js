@@ -1,8 +1,6 @@
 fetch("https://api.pokemontcg.io/v2/cards/?q=name:charmander")
 .then((resp) => resp.json())
-.then((dataObj) => renderNavBar(dataObj))
-
-// .then(fetchAndRenderLocal())
+.then((dataObj) => renderNavBar(dataObj)).then(fetchAndRenderLocal())
 
 const imgForDisplay = document.querySelector(".poke-image"); /* grabbed the img container for poke Display */
 const pokeName = document.querySelector(".poke-name")        /* grabbed the poke name container for poke Display */
@@ -29,7 +27,7 @@ function renderNavBar (dataObj){
         const flavorText = cardObj.flavorText           /* created the variable flavorText which is the text description for the Pokemon   */
         const cardRarity = cardObj.rarity               /* created the cardRarity variable for each card, could be used in the description when clicked  */
         const nationalPokedexNumbers = cardObj.nationalPokedexNumbers
-        
+
         /* const urlToBuyCard = cardObj.tcgplayer['url'] */   /* created the urlToBuyCard variable incase we want a cute lil buy button next to the 'Add to my collection' button */
         /* const evolvesFrom = cardObj.evolvesFrom; */
         /* stretch goals! */
