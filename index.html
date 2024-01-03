@@ -27,7 +27,7 @@
     </div>
 
     <div class="card-container">
-      <h2 class="poke-name">Placeholder Pokemon Name from API</h2>
+      <h2 class="poke-name">Select a Pokemon!</h2>
       <div class="content-wrapper">
         <!-- display inside of the rectangle -->
         <div class="content-left">
@@ -42,20 +42,38 @@
         </div>
         <!-- end of left DIV -->
 
-        <div class="content-right">
-          <!-- this DIV will display pokemon attributes from API -->
-          <div class="attributes-box">
-            <h3>Placeholder Title: Pokemon Attributes from API</h3>
-            <ul>
-              <li><strong>Placeholder Info: Type:</strong> Electric</li>
-              <li><strong>Placeholder Info: Height:</strong> 0.4m</li>
-              <li><strong>Placeholder Info: Weight:</strong> 6kg</li>
-              <!-- Add other attributes as needed -->
-            </ul>
-            <button id="addToCollection" class="small-button" type="button">
-              Add to Collection Below!
-            </button>
-          </div>
+       <div class="content-right">
+  <!-- this DIV will display pokemon attributes from API -->
+  <div class="attributes-box">
+    <h3>Trading Card Details</h3>
+    <ul>
+      <li class="selectedType">
+        <strong>Card Type:</strong>
+        <span class="title"></span> 
+      </li>
+      <li class="selectedDesc">
+        <strong>Pokemon Description:</strong>
+        <span class="title"></span> 
+      </li>
+      <li class ="selectedNatDex">
+        <strong>National Dex Number:</strong>
+        <span class="title"></span>
+      <li class="selectedRarity">
+        <strong>Rarity:</strong>
+        <span class="title"></span> 
+      </li>
+      <li class ="selectedRules">
+        <strong>Rules:</strong>
+        <span class="title"></span>
+        </li>
+      <!-- Add other attributes as needed -->
+    </ul>
+    <button id="addToCollection" class="small-button" type="button">
+      Add to Collection Below!
+    </button>
+  </div>
+</div>
+
           <!-- End of right side DIV display -->
         </div>
       </div>
