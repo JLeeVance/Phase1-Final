@@ -82,8 +82,8 @@ function addtoCollection() {
             "src": ownedImgSrc,
         }),
         headers: {
-            "content-type": "application/json; charset=UTF-8",
-            // "accept": "application/json",
+            "content-type": "application/json",
+            "accept": "application/json",
         }
     }).then((resp) => resp.json())
     .then((data) => console.log(data));
