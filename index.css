@@ -73,6 +73,9 @@
   
   /* Style for button */
   .small-button {
+    border-radius: 5px;
+    background-color: #ff0000;
+    color: white;
     font-size: 14px; /* Font size */
     padding: 5px 10px; /* Padding */
     margin-top: 15px; /* Top Margin */
@@ -81,7 +84,8 @@
   /*  Style for body */
   body {
       background-color: white; /* background color */
-      background-image: image('./Phase1-Final/Test Shoot-1.png');
+      background-image: url('./Test Shoot-1.png');
+      background-size:cover;
       margin:0; /* Margin */
       display:flex;                   /* >> Centers body elements << */
       flex-direction: column;         /*              "              */
