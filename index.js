@@ -2,9 +2,15 @@ fetch("https://api.pokemontcg.io/v2/cards/?q=set.name:base")
 .then((resp) => resp.json())
 .then((dataObj) => renderNavBar(dataObj)).then(fetchAndRenderLocal())
 
-
 const imgForDisplay = document.querySelector(".poke-image"); /* grabbed the img container for poke Display */
 const pokeName = document.querySelector(".poke-name")        /* grabbed the poke name container for poke Display */
+
+// Selecting the span elements with the class "title" so that we can keep the titles in the description box BOLD while dynamically changing the text content inside
+const typeTitle = document.querySelector(".selectedType .title");
+const descTitle = document.querySelector(".selectedDesc .title");
+const rarityTitle = document.querySelector(".selectedRarity .title");
+const selectedNatDex = document.querySelector(".selectedNatDex .title");
+const rulesTitle = document.querySelector(".selectedRules .title");
 
 function renderNavBar (dataObj){
     let cardArray = dataObj.data;                       /* pulled the card array from the data object within the object returned from the fetch. */
@@ -31,15 +37,18 @@ function renderNavBar (dataObj){
                             /*      attacks.push({'name':attackObj.name , 'attackText':attackObj.text , 'damage':attackObj.damage}) */
                             /*  })                                                                                                  */
                             /*  console.log(attacks)                                                                                */
-        img.addEventListener('click', (e) => {
-            imgForDisplay.src = e.target.currentSrc;
-            pokeName.textContent = name;
-        })
-        
+        img.addEventListener("click", (e) => {
+          imgForDisplay.src = e.target.currentSrc; //click for image
+          pokeName.textContent = name; //click for name
+          typeTitle.textContent = cardType; //click for type
+          descTitle.textContent = flavorText; //click for description
+          selectedNatDex.textContent = nationalPokedexNumbers; //click for national pokedex number
+          rarityTitle.textContent = cardRarity; //  click for rarity
+          rulesTitle.textContent = cardRules; //  click for rules
+          console.log(e);
+        });  
     });       
    };
-
-
 const collectionDisplay = document.querySelector("#collection-container"); /*grabbed the container*/
 const buttonToAdd = document.querySelector("#addToCollection");            /* grabbed button*/
 
