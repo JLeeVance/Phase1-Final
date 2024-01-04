@@ -8,36 +8,40 @@ const imgForDisplay = document.querySelector(".poke-image"); /* grabbed the img 
 const pokeName = document.querySelector(".poke-name")        /* grabbed the poke name container for poke Display */
 
 // Selecting the span elements with the class "title" so that we can keep the titles in the description box BOLD while dynamically changing the text content inside
-const typeTitle = document.querySelector(".selectedType .title");
-const descTitle = document.querySelector(".selectedDesc .title");
-const rarityTitle = document.querySelector(".selectedRarity .title");
+const typeTitle = document.querySelector(".selectedType .title");       /* Selecting the span elements with the class "title"         */
+const descTitle = document.querySelector(".selectedDesc .title");       /* allowing us to keep the text-content for the Titles BOLD,  */
+const rarityTitle = document.querySelector(".selectedRarity .title");   /* while dynamically changing the text content inside         */
 const selectedNatDex = document.querySelector(".selectedNatDex .title");
 
-const scrollContainer = document.querySelector(".scroll-container");
+const scrollContainer = document.querySelector(".navbar");              /* grabbed scrollContainer globally */
 
-const form = document.querySelector(".form") /* grabbed search button */
+const form = document.querySelector(".form")                            /* grabbed search form */
 form.addEventListener('submit' , (e) => {
-    if (scrollContainer.hasChildNodes()) {
-        scrollContainer.replaceChildren()
-    };
-    handleSubmit(e);
+    handleSubmit(e);                                                    /* called function handleSubmit, providing (e) */
 })
-function handleSubmit (e) {
-    e.preventDefault();
-    // let img = document.querySelectorAll(".navbar")
 
-    let searchValue = `?q=name:${(e.target[0].value).toLowerCase()}`
-    console.log(searchValue)
-    fetch(`${urL}` + `${searchValue}`)
-    .then((resp) => resp.json())
-    .then((data) => renderNavBar(data))
-}
+function handleSubmit(e) {                                              /* function handles the fetch for pokemon name search queries */
+    e.preventDefault();
+    let searchValue = `?q=name:${e.target[0].value.toLowerCase()}`;     /* isolated the value that was typed into the input field */
+    fetch(`${urL}${searchValue}`)                                       /* used string interpolation to combine both variables */
+      .then((resp) => resp.json())                                  
+      .then((data) => {                                                 /* if promise is fulfilled, line 32->36 is executed */
+        renderNavBar(data);                                             /* reusing function for this current fetch */
+        if (scrollContainer.hasChildNodes()) {                          /* in the event of a sucessful fetch, we can remove the present children */
+            scrollContainer.replaceChildren();                          /*      nodes under our navbar  */
+          };
+      })
+      .catch((error) => {                                               /* in the event of an error, the fetch will 'catch' it */
+        alert("No Pokemon were found!");                                /* the alert to the client that their fetch was not successful */         
+      });
+      e.target[0].value = ""                                            /* reset the value of the form via the event!   */
+  }
+
 function renderNavBar (dataObj){
-    let cardArray = dataObj.data;                       /* pulled the card array from the data object within the object returned from the fetch. */
-    // const navForPoke = document.querySelector(".scroll-container")/*     pulled the <nav> for the pokemon to be rendered to */
-    imgForDisplay.src = cardArray[0].images.large;
-    pokeName.textContent = cardArray[0].name;
-    typeTitle.textContent = cardArray[0].supertype;
+    let cardArray = dataObj.data;                                       /* pulled the card array from the data object within the object returned from the fetch. */
+    imgForDisplay.src = cardArray[0].images.large;                      /* line 42->47 are setting default values upon                          */
+    pokeName.textContent = cardArray[0].name;                           /*      first page load. The function is only called                    */
+    typeTitle.textContent = cardArray[0].supertype;                     /*          on page load                                                */
     descTitle.textContent = cardArray[0].flavorText;
     rarityTitle.textContent = cardArray[0].rarity;
     selectedNatDex.textContent = cardArray[0].nationalPokedexNumbers;
@@ -56,22 +60,14 @@ function renderNavBar (dataObj){
         const nationalPokedexNumbers = cardObj.nationalPokedexNumbers
 
         scrollContainer.appendChild(img);
-
-        // const attackArray = cardObj.attacks;
-        // const attacks = []; /* This does work! I think the errors are due to the cards with no attacks */
-                            /*  attackArray.forEach((attackObj) => {                                                                */
-                            /*      attacks.push({'name':attackObj.name , 'attackText':attackObj.text , 'damage':attackObj.damage}) */
-                            /*  })                                                                                                  */
-                            /*  console.log(attacks)                                                                                */
+                                                                         
         img.addEventListener("click", (e) => {
-          imgForDisplay.src = e.target.currentSrc; //click for image
-          pokeName.textContent = name; //click for name
-          typeTitle.textContent = cardType; //click for type
-          descTitle.textContent = flavorText; //click for description
-          selectedNatDex.textContent = nationalPokedexNumbers; //click for national pokedex number  
-          rarityTitle.textContent = cardRarity; //  click for rarity
-          rulesTitle.textContent = cardRules; //  click for rules
-        //   console.log(e);
+          imgForDisplay.src = e.target.currentSrc;                          /* brings down src for img tag upon clicked */
+          pokeName.textContent = name;                                      /* brings down name for poke display upon clicked */
+          typeTitle.textContent = cardType;                                 /* brings down card `type` for poke display upon clicked */
+          descTitle.textContent = flavorText;                               /* brings down poke description for display upon clicked */
+          selectedNatDex.textContent = nationalPokedexNumbers;              /* brings down National Pokedex Number for poke display */ 
+          rarityTitle.textContent = cardRarity;                             /* brings down card rarity for poke display */
         });  
     });  
 }     
@@ -79,16 +75,15 @@ const collectionDisplay = document.querySelector("#collection-container"); /*gra
 const buttonToAdd = document.querySelector("#addToCollection");            /* grabbed button*/
 
 
-buttonToAdd.addEventListener("click", () => addToCollection());/*called function inside event listener*/
+buttonToAdd.addEventListener("click", () => addToCollection());
 
 
-function addToCollection() {                /* This function is only called in the event listener*/
-    let name = pokeName.textContent;        /* pulled name info from existing poke on display */
-    let ownedImgSrc = imgForDisplay.src;    /* Got source for current poke img on display */
-    let type = typeTitle.textContent;
+function addToCollection() {                /* This function is only called in the event listener    */
+    let name = pokeName.textContent;        /* line 82 -> 86 pulls data from current poke on display */
+    let ownedImgSrc = imgForDisplay.src;    /*  it is used on line 90->94                            */
+    let type = typeTitle.textContent;       
     let description = descTitle.textContent;
     let natPokeNum = selectedNatDex.textContent;
-    let rules = rulesTitle.textContent;
 
 
     let collectionObject = {                /* Created our object we are sending to local db */
@@ -97,10 +92,9 @@ function addToCollection() {                /* This function is only called in t
         "type": type,
         "description": description,
         "natPokeNum": natPokeNum,
-        "rules": rules,
     };
 
-    fetch("http://localhost:3000/data", {   /* fetched to our local db via URL */
+    fetch("http://localhost:3000/data", {   /* fetched to our local db via URL           */
         method: "POST",                     /* POST because we are creating a new object */
         headers: {
             "content-type": "application/json",
