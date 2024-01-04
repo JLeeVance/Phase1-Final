@@ -212,7 +212,7 @@
 }
   
 .popup{
-  background-color: #ffffff;
+  background-color: rgb(244, 244, 244);
   width: 80%;
   height: 80%;
   padding: 30px 40px;
@@ -220,7 +220,8 @@
   transform: translate(-50%,-50%);
   left: 50%;
   top: 50%;
-  border-radius: 8px;
+  border: 6px;
+  border-color: #330606;
   display: none;
   text-align: center;
 }
@@ -229,14 +230,18 @@
   margin:  0 0 20px auto;
   background-color: transparent;
   font-size: 30px;
-  color: #c5c5c5;
+  color: #ff0000;
   border: none;
   outline: none;
   cursor: pointer;
 }
 .popup p{
-  font-size: 14px;
+  font-size: 30px;
   text-align: center;
-  margin: 20px 0;
-  line-height: 25px;
+  margin-top: 75px;
+  line-height: 50px;
+}
+.popuptitle  {
+  font-size: 50px;
+  font-style: bold;
 }
