@@ -1,4 +1,5 @@
-fetch("https://api.pokemontcg.io/v2/cards/?q=name:charmander")
+const urL = "https://api.pokemontcg.io/v2/cards/"
+fetch(urL)
 .then((resp) => resp.json())
 .then((dataObj) => renderNavBar(dataObj))
 .then(fetchAndRenderLocal())
@@ -12,21 +13,32 @@ const descTitle = document.querySelector(".selectedDesc .title");
 const rarityTitle = document.querySelector(".selectedRarity .title");
 const selectedNatDex = document.querySelector(".selectedNatDex .title");
 const rulesTitle = document.querySelector(".selectedRules .title");
+const scrollContainer = document.querySelector(".scroll-container");
+
 
 const form = document.querySelector(".form") /* grabbed search button */
-form.addEventListener('submit' , (e) => handleSubmit(e))
+form.addEventListener('submit' , (e) => {
+    if (scrollContainer.hasChildNodes()) {
+        scrollContainer.replaceChildren()
+    };
+    handleSubmit(e);
+})
 function handleSubmit (e) {
     e.preventDefault();
-    let searchField = 
-    console.log(e.target[0].value)
-}
+    // let img = document.querySelectorAll(".navbar")
 
+    let searchValue = `?q=name:${(e.target[0].value).toLowerCase()}`
+    console.log(searchValue)
+    fetch(`${urL}` + `${searchValue}`)
+    .then((resp) => resp.json())
+    .then((data) => renderNavBar(data))
+}
 
 
 
 function renderNavBar (dataObj){
     let cardArray = dataObj.data;                       /* pulled the card array from the data object within the object returned from the fetch. */
-    const navForPoke = document.querySelector(".navBar")/*     pulled the <nav> for the pokemon to be rendered to */
+    // const navForPoke = document.querySelector(".scroll-container")/*     pulled the <nav> for the pokemon to be rendered to */
 
     cardArray.forEach(cardObj => {                      /* console.log(cardObj) */
         const img = document.createElement("img");      /* created <img> for each image being rendered */
@@ -45,7 +57,7 @@ function renderNavBar (dataObj){
         /* const evolvesFrom = cardObj.evolvesFrom; */
         /* stretch goals! */
 
-        navForPoke.appendChild(img);
+        scrollContainer.appendChild(img);
 
         // const attackArray = cardObj.attacks;
         // const attacks = []; /* This does work! I think the errors are due to the cards with no attacks */
@@ -63,8 +75,8 @@ function renderNavBar (dataObj){
           rulesTitle.textContent = cardRules; //  click for rules
         //   console.log(e);
         });  
-    });       
-   };
+    });  
+}     
 const collectionDisplay = document.querySelector("#collection-container"); /*grabbed the container*/
 const buttonToAdd = document.querySelector("#addToCollection");            /* grabbed button*/
 
@@ -127,4 +139,4 @@ function fetchAndRenderLocal() {                                        /* This 
             myCollection.append(card);              /* added card to the myCollection variable defined on line 89 */
         })
     })
- }
+}
