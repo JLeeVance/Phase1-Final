@@ -202,7 +202,13 @@
     margin:5px;
     box-sizing: border-box;
 }
-  
-  
+
+.hidden {
+    display:none;
+}
+
+#formContainer {
+    margin-top: 30px;
+}
   
   
