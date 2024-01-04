@@ -12,9 +12,8 @@ const typeTitle = document.querySelector(".selectedType .title");
 const descTitle = document.querySelector(".selectedDesc .title");
 const rarityTitle = document.querySelector(".selectedRarity .title");
 const selectedNatDex = document.querySelector(".selectedNatDex .title");
-const rulesTitle = document.querySelector(".selectedRules .title");
-const scrollContainer = document.querySelector(".scroll-container");
 
+const scrollContainer = document.querySelector(".scroll-container");
 
 const form = document.querySelector(".form") /* grabbed search button */
 form.addEventListener('submit' , (e) => {
@@ -33,12 +32,16 @@ function handleSubmit (e) {
     .then((resp) => resp.json())
     .then((data) => renderNavBar(data))
 }
-
-
-
 function renderNavBar (dataObj){
     let cardArray = dataObj.data;                       /* pulled the card array from the data object within the object returned from the fetch. */
     // const navForPoke = document.querySelector(".scroll-container")/*     pulled the <nav> for the pokemon to be rendered to */
+    imgForDisplay.src = cardArray[0].images.large;
+    pokeName.textContent = cardArray[0].name;
+    typeTitle.textContent = cardArray[0].supertype;
+    descTitle.textContent = cardArray[0].flavorText;
+    rarityTitle.textContent = cardArray[0].rarity;
+    selectedNatDex.textContent = cardArray[0].nationalPokedexNumbers;
+    
 
     cardArray.forEach(cardObj => {                      /* console.log(cardObj) */
         const img = document.createElement("img");      /* created <img> for each image being rendered */
@@ -51,11 +54,6 @@ function renderNavBar (dataObj){
         const flavorText = cardObj.flavorText           /* created the variable flavorText which is the text description for the Pokemon   */
         const cardRarity = cardObj.rarity               /* created the cardRarity variable for each card, could be used in the description when clicked  */
         const nationalPokedexNumbers = cardObj.nationalPokedexNumbers
-        const cardRules = cardObj.cardRules
-
-        /* const urlToBuyCard = cardObj.tcgplayer['url'] */   /* created the urlToBuyCard variable incase we want a cute lil buy button next to the 'Add to my collection' button */
-        /* const evolvesFrom = cardObj.evolvesFrom; */
-        /* stretch goals! */
 
         scrollContainer.appendChild(img);
 
