@@ -4,10 +4,21 @@ fetch(urL)
 .then((dataObj) => renderNavBar(dataObj))
 .then(fetchAndRenderLocal())
 
+window.addEventListener("load", function(){                                 /* Event listener for "window" load. ONLY when EVERYTHING is loaded */
+    setTimeout(
+        function openInstructions(event){
+            document.querySelector(".popup").style.display = "block";       /* Changed display for the div with class of .popup*/
+        },
+        1000                                                                /* Used the setTimeout() function to trigger the called function*/
+    )                                                                       /* 1 second after page load                                     */
+});
+document.querySelector("#close").addEventListener("click", function(){
+    document.querySelector(".popup").style.display = "none";
+});
+
 const imgForDisplay = document.querySelector(".poke-image"); /* grabbed the img container for poke Display */
 const pokeName = document.querySelector(".poke-name")        /* grabbed the poke name container for poke Display */
 
-// Selecting the span elements with the class "title" so that we can keep the titles in the description box BOLD while dynamically changing the text content inside
 const typeTitle = document.querySelector(".selectedType .title");       /* Selecting the span elements with the class "title"         */
 const descTitle = document.querySelector(".selectedDesc .title");       /* allowing us to keep the text-content for the Titles BOLD,  */
 const rarityTitle = document.querySelector(".selectedRarity .title");   /* while dynamically changing the text content inside         */
