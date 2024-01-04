@@ -1,40 +1,5 @@
 {
   "data": [
-    {
-      "name": "Charmander",
-      "src": "https://images.pokemontcg.io/sm115/7_hires.png",
-      "type": "Pokémon",
-      "description": "The flame on its tail indicates Charmander's life force. If it is healthy, the flame burns brightly.",
-      "natPokeNum": "4",
-      "rules": "",
-      "id": 1
-    },
-    {
-      "name": "Charmander",
-      "src": "https://images.pokemontcg.io/sm9/11_hires.png",
-      "type": "Pokémon",
-      "description": "The flame on its tail indicates Charmander's life force. If it is healthy, the flame burns brightly.",
-      "natPokeNum": "4",
-      "rules": "",
-      "id": 2
-    },
-    {
-      "name": "Charmander",
-      "src": "https://images.pokemontcg.io/sv3pt5/168_hires.png",
-      "type": "Pokémon",
-      "description": "From the time it is born, a flame burns at the tip of its tail. Its life would end if the flame were to go out.",
-      "natPokeNum": "4",
-      "rules": "",
-      "id": 3
-    },
-    {
-      "name": "Charmander",
-      "src": "https://images.pokemontcg.io/sv3pt5/168_hires.png",
-      "type": "Pokémon",
-      "description": "From the time it is born, a flame burns at the tip of its tail. Its life would end if the flame were to go out.",
-      "natPokeNum": "4",
-      "rules": "",
-      "id": 4
-    }
+
   ]
 }
