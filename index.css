@@ -240,13 +240,3 @@
   margin: 20px 0;
   line-height: 25px;
 }
-a{
-  display: block;
-  width: 200px;
-  position: relative;
-  margin: 10px auto;
-  text-align: center;
-  background-color: transparent;
-  color: #f64545;
-  padding: 5px 0;
-}
