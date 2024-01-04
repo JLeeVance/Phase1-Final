@@ -1,31 +1,4 @@
 {
   "data": [
-    {
-      "name": "Charmander",
-      "src": "https://images.pokemontcg.io/det1/4_hires.png",
-      "type": "Pokémon",
-      "description": "The flame on its tail indicates Charmander's life force. If it is healthy, the flame burns brightly.",
-      "natPokeNum": "4",
-      "rules": "",
-      "id": 1
-    },
-    {
-      "name": "Bulbasaur",
-      "src": "https://images.pokemontcg.io/pop2/12_hires.png",
-      "type": "Pokémon",
-      "description": "",
-      "natPokeNum": "1",
-      "rules": "",
-      "id": 2
-    },
-    {
-      "name": "Pikachu",
-      "src": "https://images.pokemontcg.io/swshp/SWSH039_hires.png",
-      "type": "Pokémon",
-      "description": "Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy.",
-      "natPokeNum": "25",
-      "rules": "",
-      "id": 3
-    }
   ]
 }

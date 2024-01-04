@@ -104,6 +104,8 @@
   }
   
   .scroll-container {
+    display:flex;
+    flex-wrap: wrap;
     border-radius: 5px; /*rounds corners*/
     background-color: white; /*background color*/
     margin-bottom: 10px; /*sets bottom margin*/
@@ -194,7 +196,19 @@
       overflow-y: scroll;
       background-color: white;
   }
-  
-  
+
+.navbar.bottom img {
+    flex: 0 0 calc(20% - 10px);
+    margin:5px;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display:none;
+}
+
+#formContainer {
+    margin-top: 30px;
+}
   
   
