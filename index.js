@@ -134,7 +134,7 @@ function createCard(newlyAdded) {
         })
     img.src = newlyAdded.src;
     h4.textContent = newlyAdded.name;
-    card.append(button, h4, img);
+    card.append(h4, button, img);
     myCollection.append(card);
 }
 function fetchAndRenderLocal() {                                        /* This fuction creates a card tag, img tag, and the header */
@@ -159,7 +159,7 @@ function fetchAndRenderLocal() {                                        /* This 
         })
         img.src = localCardObj.src;             /* Used a forEach loop of our array of abjects */                                     
         h4.textContent = localCardObj.name;     /* Pulled the data for the client rendering from local db */    
-        card.append(button, h4,img);                    /* added h4 and img tags to the card */
+        card.append(h4, button, img);                    /* added h4 and img tags to the card */
         myCollection.append(card);              /* added card to the myCollection variable defined on line 89 */
         })
     })
