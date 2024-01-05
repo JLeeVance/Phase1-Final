@@ -1,12 +1,3 @@
 {
-  "data": [
-    {
-      "name": "Erika's Venusaur",
-      "src": "https://images.pokemontcg.io/gym2/4_hires.png",
-      "type": "Pokémon",
-      "description": "",
-      "natPokeNum": "3",
-      "id": 1
-    }
-  ]
+  "data": []
 }
