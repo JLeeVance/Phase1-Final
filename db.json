@@ -1,3 +1,20 @@
 {
-  "data": []
+  "data": [
+    {
+      "id": "a299",
+      "name": "Articuno",
+      "src": "https://images.pokemontcg.io/base3/2_hires.png",
+      "type": "Pokémon",
+      "description": "A legendary bird Pokémon that is said to appear to doomed people who are lost in icy mountains.",
+      "natPokeNum": "144"
+    },
+    {
+      "id": "bb87",
+      "name": "Pikachu",
+      "src": "https://images.pokemontcg.io/basep/1_hires.png",
+      "type": "Pokémon",
+      "description": "When several of these Pokémon gather, their electricity could build and cause lightning storms.",
+      "natPokeNum": "25"
+    }
+  ]
 }
